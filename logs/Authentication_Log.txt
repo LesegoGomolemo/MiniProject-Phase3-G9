@@ -1,0 +1,100 @@
+logID:000001, dateTime:24-4-2018 22:36:55, deviceID:617689, userID:42012, event:Balance Enquiry, authenticationType:Pin
+logID:000002, dateTime:8-8-2018 10:36:28, deviceID:766385, userID:76344, event:Withdrawal, authenticationType:Finger Print
+logID:000003, dateTime:9-11-2016 13:56:20, deviceID:784758, userID:40555, event:Withdrawal, authenticationType:OTP
+logID:000004, dateTime:1-3-2016 15:53:17, deviceID:336028, userID:78398, event:Withdrawal, authenticationType:Finger Print
+logID:000005, dateTime:10-11-2016 23:13:28, deviceID:955184, userID:15335, event:Deposit, authenticationType:NFC
+logID:000006, dateTime:30-8-2017 17:32:35, deviceID:398739, userID:82761, event:Withdrawal, authenticationType:Pin
+logID:000007, dateTime:4-5-2018 03:31:24, deviceID:957046, userID:33536, event:Balance Enquiry, authenticationType:Facial Recognition
+logID:000008, dateTime:25-12-2018 20:47:18, deviceID:612625, userID:19153, event:Deposit, authenticationType:NFC
+logID:000009, dateTime:28-3-2018 09:49:52, deviceID:839985, userID:28800, event:Balance Enquiry, authenticationType:OTP
+logID:000010, dateTime:21-12-2018 09:40:04, deviceID:382052, userID:53865, event:Withdrawal, authenticationType:Finger Print
+logID:000011, dateTime:23-9-2016 08:54:29, deviceID:898664, userID:37377, event:Withdrawal, authenticationType:Pin
+logID:000012, dateTime:19-1-2016 16:04:35, deviceID:519640, userID:72718, event:Balance Enquiry, authenticationType:OTP
+logID:000013, dateTime:21-7-2016 07:02:16, deviceID:210123, userID:40569, event:Balance Enquiry, authenticationType:Facial Recognition
+logID:000014, dateTime:24-8-2016 23:49:07, deviceID:182112, userID:97619, event:Withdrawal, authenticationType:Pin
+logID:000015, dateTime:15-11-2016 23:17:17, deviceID:260119, userID:56140, event:Deposit, authenticationType:NFC
+logID:000016, dateTime:9-8-2016 08:46:55, deviceID:784542, userID:66562, event:Balance Enquiry, authenticationType:Facial Recognition
+logID:000017, dateTime:1-9-2018 18:33:11, deviceID:763265, userID:44963, event:Deposit, authenticationType:OTP
+logID:000018, dateTime:31-6-2017 12:20:58, deviceID:130489, userID:43136, event:Balance Enquiry, authenticationType:Pin
+logID:000019, dateTime:12-6-2018 23:43:17, deviceID:527844, userID:56564, event:Deposit, authenticationType:OTP
+logID:000020, dateTime:26-10-2016 17:52:41, deviceID:220555, userID:27587, event:Balance Enquiry, authenticationType:Pin
+logID:000021, dateTime:25-11-2016 10:15:28, deviceID:684589, userID:95189, event:Balance Enquiry, authenticationType:OTP
+logID:000022, dateTime:8-6-2016 22:44:57, deviceID:550454, userID:92633, event:Deposit, authenticationType:Facial Recognition
+logID:000023, dateTime:16-11-2016 04:34:30, deviceID:423259, userID:77293, event:Withdrawal, authenticationType:NFC
+logID:000024, dateTime:16-5-2016 02:17:49, deviceID:528215, userID:69969, event:Balance Enquiry, authenticationType:Finger Print
+logID:000025, dateTime:25-4-2016 11:09:37, deviceID:707804, userID:89013, event:Withdrawal, authenticationType:Finger Print
+logID:000026, dateTime:29-8-2018 12:21:06, deviceID:951549, userID:16276, event:Balance Enquiry, authenticationType:NFC
+logID:000027, dateTime:29-5-2016 07:13:38, deviceID:676870, userID:38571, event:Balance Enquiry, authenticationType:OTP
+logID:000028, dateTime:24-12-2017 14:01:48, deviceID:207178, userID:12321, event:Balance Enquiry, authenticationType:Pin
+logID:000029, dateTime:2-4-2018 11:17:13, deviceID:915851, userID:14926, event:Balance Enquiry, authenticationType:NFC
+logID:000030, dateTime:9-10-2018 13:19:08, deviceID:934161, userID:62177, event:Deposit, authenticationType:NFC
+logID:000031, dateTime:11-11-2017 05:13:57, deviceID:346353, userID:21294, event:Deposit, authenticationType:Finger Print
+logID:000032, dateTime:18-10-2017 00:40:18, deviceID:957331, userID:24290, event:Balance Enquiry, authenticationType:OTP
+logID:000033, dateTime:19-4-2016 23:04:13, deviceID:200682, userID:81850, event:Balance Enquiry, authenticationType:Facial Recognition
+logID:000034, dateTime:27-1-2017 14:27:35, deviceID:709713, userID:91689, event:Withdrawal, authenticationType:NFC
+logID:000035, dateTime:9-9-2016 20:44:35, deviceID:805276, userID:37557, event:Deposit, authenticationType:Pin
+logID:000036, dateTime:17-7-2018 11:57:36, deviceID:481879, userID:77884, event:Balance Enquiry, authenticationType:OTP
+logID:000037, dateTime:29-9-2017 21:56:40, deviceID:128232, userID:88372, event:Balance Enquiry, authenticationType:Finger Print
+logID:000038, dateTime:14-3-2016 23:32:34, deviceID:719030, userID:36506, event:Balance Enquiry, authenticationType:NFC
+logID:000039, dateTime:19-9-2018 10:51:28, deviceID:282105, userID:85615, event:Withdrawal, authenticationType:Facial Recognition
+logID:000040, dateTime:3-3-2017 05:48:46, deviceID:277378, userID:11311, event:Balance Enquiry, authenticationType:NFC
+logID:000041, dateTime:12-7-2017 13:31:33, deviceID:569607, userID:63180, event:Deposit, authenticationType:OTP
+logID:000042, dateTime:25-12-2018 00:55:17, deviceID:799837, userID:40367, event:Deposit, authenticationType:NFC
+logID:000043, dateTime:11-10-2018 00:43:51, deviceID:576632, userID:23992, event:Deposit, authenticationType:NFC
+logID:000044, dateTime:1-5-2018 08:56:31, deviceID:893931, userID:35108, event:Withdrawal, authenticationType:Finger Print
+logID:000045, dateTime:19-9-2016 08:39:55, deviceID:937542, userID:91660, event:Balance Enquiry, authenticationType:OTP
+logID:000046, dateTime:6-6-2016 13:05:42, deviceID:479676, userID:64192, event:Withdrawal, authenticationType:Pin
+logID:000047, dateTime:8-4-2017 04:57:05, deviceID:885105, userID:21712, event:Deposit, authenticationType:NFC
+logID:000048, dateTime:1-6-2017 05:05:39, deviceID:687235, userID:75879, event:Deposit, authenticationType:Finger Print
+logID:000049, dateTime:20-8-2018 10:33:57, deviceID:926990, userID:70929, event:Deposit, authenticationType:OTP
+logID:000050, dateTime:18-7-2018 11:05:22, deviceID:483298, userID:27173, event:Withdrawal, authenticationType:Facial Recognition
+logID:000051, dateTime:29-11-2017 20:15:14, deviceID:604137, userID:85749, event:Balance Enquiry, authenticationType:OTP
+logID:000052, dateTime:2-7-2017 21:22:11, deviceID:534325, userID:40484, event:Withdrawal, authenticationType:Facial Recognition
+logID:000053, dateTime:1-2-2017 13:49:25, deviceID:954956, userID:18099, event:Deposit, authenticationType:OTP
+logID:000054, dateTime:29-1-2017 22:31:17, deviceID:447641, userID:54523, event:Withdrawal, authenticationType:Pin
+logID:000055, dateTime:1-9-2016 14:46:46, deviceID:360751, userID:38081, event:Deposit, authenticationType:Facial Recognition
+logID:000056, dateTime:12-8-2018 13:19:25, deviceID:641143, userID:20849, event:Withdrawal, authenticationType:Finger Print
+logID:000057, dateTime:16-10-2017 03:15:46, deviceID:733025, userID:28429, event:Balance Enquiry, authenticationType:Facial Recognition
+logID:000058, dateTime:12-8-2017 00:32:15, deviceID:886496, userID:72029, event:Deposit, authenticationType:Finger Print
+logID:000059, dateTime:4-12-2016 05:43:25, deviceID:540118, userID:86885, event:Deposit, authenticationType:Pin
+logID:000060, dateTime:4-6-2018 05:09:30, deviceID:832010, userID:45579, event:Deposit, authenticationType:Facial Recognition
+logID:000061, dateTime:3-2-2017 20:28:01, deviceID:957653, userID:26402, event:Deposit, authenticationType:NFC
+logID:000062, dateTime:3-8-2018 16:52:59, deviceID:739415, userID:54128, event:Deposit, authenticationType:Finger Print
+logID:000063, dateTime:1-4-2018 13:03:42, deviceID:678790, userID:59384, event:Deposit, authenticationType:Finger Print
+logID:000064, dateTime:26-7-2017 05:22:09, deviceID:958603, userID:17687, event:Balance Enquiry, authenticationType:OTP
+logID:000065, dateTime:30-7-2016 08:40:12, deviceID:681560, userID:53822, event:Balance Enquiry, authenticationType:Facial Recognition
+logID:000066, dateTime:16-11-2018 21:43:22, deviceID:364678, userID:77421, event:Balance Enquiry, authenticationType:NFC
+logID:000067, dateTime:26-7-2016 15:22:34, deviceID:456170, userID:49073, event:Balance Enquiry, authenticationType:Facial Recognition
+logID:000068, dateTime:2-3-2016 20:33:13, deviceID:374506, userID:22283, event:Withdrawal, authenticationType:OTP
+logID:000069, dateTime:11-5-2018 12:52:58, deviceID:488439, userID:17355, event:Deposit, authenticationType:Facial Recognition
+logID:000070, dateTime:1-3-2016 06:15:28, deviceID:116796, userID:52013, event:Withdrawal, authenticationType:Facial Recognition
+logID:000071, dateTime:25-6-2016 17:32:21, deviceID:215579, userID:56136, event:Balance Enquiry, authenticationType:Facial Recognition
+logID:000072, dateTime:21-3-2018 15:20:36, deviceID:173673, userID:56540, event:Balance Enquiry, authenticationType:Finger Print
+logID:000073, dateTime:16-11-2016 01:18:36, deviceID:876670, userID:90148, event:Balance Enquiry, authenticationType:Pin
+logID:000074, dateTime:12-5-2018 23:06:59, deviceID:900565, userID:11892, event:Balance Enquiry, authenticationType:Finger Print
+logID:000075, dateTime:22-12-2017 05:50:42, deviceID:824147, userID:66762, event:Deposit, authenticationType:NFC
+logID:000076, dateTime:5-10-2016 19:30:36, deviceID:884088, userID:76579, event:Deposit, authenticationType:Finger Print
+logID:000077, dateTime:31-11-2017 19:36:10, deviceID:440365, userID:35736, event:Balance Enquiry, authenticationType:Finger Print
+logID:000078, dateTime:14-5-2016 18:04:45, deviceID:713145, userID:61170, event:Deposit, authenticationType:OTP
+logID:000079, dateTime:8-11-2016 01:45:31, deviceID:230739, userID:83097, event:Balance Enquiry, authenticationType:NFC
+logID:000080, dateTime:8-7-2016 07:39:06, deviceID:897692, userID:64195, event:Withdrawal, authenticationType:Pin
+logID:000081, dateTime:12-8-2016 13:02:14, deviceID:277534, userID:27043, event:Balance Enquiry, authenticationType:Facial Recognition
+logID:000082, dateTime:25-2-2018 23:33:45, deviceID:750100, userID:46236, event:Deposit, authenticationType:OTP
+logID:000083, dateTime:7-2-2018 15:30:45, deviceID:690207, userID:32889, event:Withdrawal, authenticationType:Pin
+logID:000084, dateTime:5-6-2016 08:01:45, deviceID:713016, userID:55266, event:Balance Enquiry, authenticationType:NFC
+logID:000085, dateTime:9-8-2017 17:16:05, deviceID:658189, userID:60377, event:Balance Enquiry, authenticationType:NFC
+logID:000086, dateTime:24-6-2018 01:59:13, deviceID:168614, userID:25520, event:Withdrawal, authenticationType:Pin
+logID:000087, dateTime:16-7-2018 10:10:33, deviceID:831930, userID:28866, event:Deposit, authenticationType:OTP
+logID:000088, dateTime:17-4-2017 10:25:25, deviceID:235948, userID:83864, event:Balance Enquiry, authenticationType:Pin
+logID:000089, dateTime:13-5-2018 05:12:19, deviceID:207553, userID:73703, event:Deposit, authenticationType:NFC
+logID:000090, dateTime:5-11-2016 15:05:20, deviceID:515797, userID:23204, event:Deposit, authenticationType:Finger Print
+logID:000091, dateTime:21-9-2018 01:16:05, deviceID:952629, userID:24332, event:Deposit, authenticationType:OTP
+logID:000092, dateTime:21-7-2018 16:45:22, deviceID:428848, userID:89905, event:Balance Enquiry, authenticationType:OTP
+logID:000093, dateTime:2-4-2017 18:14:42, deviceID:116756, userID:61025, event:Deposit, authenticationType:Finger Print
+logID:000094, dateTime:2-6-2016 04:39:23, deviceID:349597, userID:62719, event:Deposit, authenticationType:Pin
+logID:000095, dateTime:7-6-2017 08:45:58, deviceID:372615, userID:11994, event:Deposit, authenticationType:NFC
+logID:000096, dateTime:21-7-2018 01:58:41, deviceID:913738, userID:41326, event:Withdrawal, authenticationType:NFC
+logID:000097, dateTime:12-10-2018 13:44:56, deviceID:980077, userID:76307, event:Balance Enquiry, authenticationType:Facial Recognition
+logID:000098, dateTime:6-12-2016 12:18:38, deviceID:664276, userID:44398, event:Withdrawal, authenticationType:OTP
+logID:000099, dateTime:10-8-2016 10:24:38, deviceID:679536, userID:69526, event:Withdrawal, authenticationType:Finger Print
+logID:000100, dateTime:15-2-2016 15:29:37, deviceID:323451, userID:80790, event:Deposit, authenticationType:Pin
