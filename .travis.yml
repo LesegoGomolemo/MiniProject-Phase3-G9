@@ -8,4 +8,4 @@ before_install:
   - npm install -g npm
 
 script:
-  - node app.js
+  - echo "Batch script is to follow"
