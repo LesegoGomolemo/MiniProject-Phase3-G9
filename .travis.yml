@@ -3,8 +3,7 @@ sudo: false
 language: node_js
 node_js:
   - "7"
-before_install:
-  - npm install express-generator
+before_install:cd .
 
 script:
   - node app.js
