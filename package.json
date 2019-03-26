@@ -1,0 +1,23 @@
+{
+  "name": "MiniProject-Phase3-G9",
+  "version": "1.0.0",
+  "description": "A repository for our final year Software Engineering mini project.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LesegoGomolemo/MiniProject-Phase3-G9.git"
+  },
+  "keywords": [],
+  "author": "Merlot Group 9",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LesegoGomolemo/MiniProject-Phase3-G9/issues"
+  },
+  "homepage": "https://github.com/LesegoGomolemo/MiniProject-Phase3-G9#readme"
+}
