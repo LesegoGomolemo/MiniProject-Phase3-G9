@@ -1,0 +1,4 @@
+{ logs:
+    [ { logType: 'cardCreated', logData: "stuff1" },
+      { logType: 'cardCreated', logData: "stuff5" },
+      { logType: 'cardCancelled', logData: "stuff9" }]}

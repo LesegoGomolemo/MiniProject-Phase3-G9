@@ -1,0 +1,28 @@
+{
+  "name": "Communication",
+  "version": "1.0.0",
+  "description": "Recieves Log Sets for Processing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Hello there!\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LesegoGomolemo/MiniProject-Phase3-G9.git"
+  },
+  "author": "Merlot Group 9",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LesegoGomolemo/MiniProject-Phase3-G9/issues"
+  },
+  "homepage": "https://github.com/LesegoGomolemo/MiniProject-Phase3-G9#readme",
+  "devDependencies": {
+    "async": "^2.6.2",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "multer": "^1.4.1",
+    "node-cmd": "^3.0.0",
+    "querystring": "^0.2.0"
+  }
+}
