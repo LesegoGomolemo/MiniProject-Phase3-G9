@@ -2,10 +2,10 @@
 var querystring = require('querystring')
 var http = require('http')
 
-function PostCode (codestring) {
+function PostCode (logData) {
   // Build the post string from an object
   var postData = querystring.stringify({
-    log_set: codestring
+    log_set: logData
   })
 
   // An object of options to indicate where to post to
@@ -35,6 +35,6 @@ function PostCode (codestring) {
 }
 
 var logs =
-  '{ "auditLogs": [ { "logType": "cardCreated", "logData": "stuff1" },{ "logType": "cardCreated", "logData": "stuff5" },{ "logType": "cardCancelled", "logData": "stuff9" }]}'
+  '{ "logs": [ { "logType": "cardCreated", "logData": "stuff1" },{ "logType": "cardCreated", "logData": "stuff5" },{ "logType": "cardCancelled", "logData": "stuff9" }],"system": "audit"}'
 
 PostCode(logs)
