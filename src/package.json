@@ -4,7 +4,8 @@
   "description": "Recieves Log Sets for Processing",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Hello there!\""
+    "test": "echo \"Starting tests\"",
+    "start": "echo \"Starting project\" "
   },
   "repository": {
     "type": "git",
