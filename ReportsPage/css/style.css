@@ -1,0 +1,179 @@
+h1 {
+    font-family: helvetica;
+    color: #ffffff;
+}
+
+body {
+  background-color: lightgray;
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+.col1-1 {width: 8.33%;}
+.col1-2 {width: 16.66%;}
+.col1-3 {width: 25%;}
+.col1-4 {width: 33.33%;}
+.col1-5 {width: 41.66%;}
+.col1-6 {width: 50%;}
+.col1-7 {width: 58.33%;}
+.col1-8 {width: 66.66%;}
+.col1-9 {width: 75%;}
+.col1-10 {width: 83.33%;}
+.col1-11 {width: 91.66%;}
+.col1-12 {width: 100%;}
+
+.col2-1 {width: 8.33%;}
+.col2-2 {width: 16.66%;}
+.col2-3 {width: 25%;}
+.col2-4 {width: 33.33%;}
+.col2-5 {width: 41.66%;}
+.col2-6 {width: 50%;}
+.col2-7 {width: 58.33%;}
+.col2-8 {width: 66.66%;}
+.col2-9 {width: 75%;}
+.col2-10 {width: 83.33%;}
+.col2-11 {width: 91.66%;}
+.col2-12 {width: 100%;}
+
+[class*="col1-"] {
+    float: left;
+    padding: 15px;
+    /* border: 1px solid darkgray; */
+    /* background-color: lightgrey; */
+    margin-bottom: 4%;
+    margin-right: 4%;
+    margin-left: 4%;
+}
+
+[class*="col2-"] {
+    float: left;
+    padding-top: 10px;
+    background-color: #21b7ad;
+    height: 100px;
+    padding-bottom: 30px;
+}
+
+.chartRow::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.infoRow::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#graphics {
+        background-color: #21b7ad; /* Blue background */
+        border: none;
+        color: white;
+        padding: 12px 16px; /* Some padding */
+        font-size: 30px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+        border-radius: 20%;
+        height: 50px;
+}
+
+#graphics:hover {
+    background-color: #21b7ad;
+    position: relative;
+    bottom: -5px;
+}
+
+#logs {
+    background-color: #21b7ad; /* Blue background */
+    border: none;
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 30px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    border-radius: 20%;
+    height: 50px;
+}
+
+#logs:hover {
+    background-color: #21b7ad;
+    position: relative;
+    bottom: -5px;
+}
+
+#share {
+    background-color: #21b7ad; /* Blue background */
+    border: none;
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 30px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    border-radius: 20%;
+    height: 50px;
+}
+
+#share:hover {
+    background-color: #21b7ad;
+    position: relative;
+    bottom: -5px;
+}
+
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+#backButton {
+  border-radius: 4px;
+  padding: 8px;
+  border: none;
+  font-size: 16px;
+  background-color: #2eacd1;
+  color: black;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+.invisible {
+  /* display: none; */
+}

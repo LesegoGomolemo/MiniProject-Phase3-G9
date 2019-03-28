@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+<head>
+    <title>FNB Reports</title>
+    <meta charset = "UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <link href="https://canvasjs.com/assets/css/jquery-ui.1.11.2.min.css" rel="stylesheet" />
+    <script src="jqueryGraphs.js"></script>
+</head>
+<body>
+    <div class="infoRow">
+        <div class="col2-3">
+            <img src="media/FNBLogo.png" alt="FNB Logo">
+        </div>
+        <div class="col2-6" style="text-align: center">
+            <h1>Report</h1>
+        </div>
+        <div class="col2-1">
+            <button class="btn" id="graphics"><i class="fa fa-home"></i></button>
+        </div>
+        <div class="col2-1">
+            <button class="btn" id="logs"><i class="fa fa-list-ul"></i></button>
+        </div>
+        <div class="col2-1">
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn" id="share"><i onclick="myFunction()" class="fa fa-share-alt"></i></button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Download PDF</a>
+                    <a href="#">Download Excel Document</a>
+                    <a href="#">Email Report</a>
+                    <a href="#">Share link</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="chartRow">
+            <div class="col1-12" id="DailyUsers" style="height: 370px; width: 90%;"></div>
+            <div class="col1-3" id="AuthenticationTypes" style="height: 370px; width: 25%;"></div>
+            <div class="col1-3" id="SuccessFail" style="height: 370px; width: 25%;"></div>
+            <div class="col1-3" id="PopularActions" style="height: 370px; width: 25%;"></div>
+        </div>
+
+</body>
+</html>
