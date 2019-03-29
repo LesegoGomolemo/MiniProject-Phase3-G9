@@ -38,3 +38,5 @@ var logs =
   '{ "logs": [ { "logType": "cardCreated", "logData": "stuff1" },{ "logType": "cardCreated", "logData": "stuff5" },{ "logType": "cardCancelled", "logData": "stuff9" }],"system": "audit"}'
 
 PostCode(logs)
+
+module.exports = PostCode
