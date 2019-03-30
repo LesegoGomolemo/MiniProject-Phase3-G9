@@ -37,9 +37,9 @@ function PostCode (logData) {
     console.error(`problem with request: ${e.message}`)
   })
 
-  postReq.on('socket', s => {
+  /* postReq.on('socket', s => {
     console.error(`problem with socket: ${s.message}`)
-  })
+  }) */
 
   // post the data
   /*

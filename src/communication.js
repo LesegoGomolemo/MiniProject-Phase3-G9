@@ -14,7 +14,7 @@ function setPort (p) {
 async function processData (req, res) {
   // console.log('processData /')
 
-  /*var data = req.body
+  var data = req.body
   var logSet
   if (data.log_set.toString()) {
     logSet = JSON.parse(data.log_set.toString())
@@ -24,7 +24,7 @@ async function processData (req, res) {
     res.end(`Data sent is incorrect`)
     // re
   }
-  addToQueue(logSet)*/
+  addToQueue(logSet)
 
   // logSet.auditLogs[0].logData : this is the stuff you add to the redis thing.
 
