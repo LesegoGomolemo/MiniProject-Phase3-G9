@@ -10,8 +10,8 @@ function PostCode (logData) {
 
   // An object of options to indicate where to post to
   var postOptions = {
-    host: 'localhost',
-    port: '3000',
+    host: 'still-oasis-34724.herokuapp.com',
+    port: '35540',
     path: '/uploadLog',
     method: 'POST',
     headers: {
@@ -35,6 +35,10 @@ function PostCode (logData) {
 
   postReq.on('error', e => {
     console.error(`problem with request: ${e.message}`)
+  })
+
+  postReq.on('socket', s => {
+    console.error(`problem with socket: ${s.message}`)
   })
 
   // post the data
