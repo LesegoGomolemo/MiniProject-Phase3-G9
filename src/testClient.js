@@ -22,14 +22,32 @@ function PostCode (logData) {
 
   // Set up the request
   var postReq = http.request(postOptions, function (res) {
+    console.log(`STATUS: ${res.statusCode}`)
+    console.log(`HEADERS: ${JSON.stringify(res.headers)}`)
     res.setEncoding('utf8')
     res.on('data', function (chunk) {
-      console.log('Response: ' + chunk)
+      console.log(`BODY: ${chunk}`)
+    })
+    res.on('end', () => {
+      console.log('No more data in response.')
     })
   })
 
+  postReq.on('error', e => {
+    console.error(`problem with request: ${e.message}`)
+  })
+
   // post the data
-  console.log(querystring.parse(postData))
+  /*
+  ERROR:
+    '\n\nThe data being sent:\n\n' + querystring.parse(postData) + '\n\n'
+                                   ^
+
+    TypeError: Cannot convert object to primitive value
+  CODE:
+  console.log(
+    '\n\nThe data being sent:\n\n' + querystring.parse(postData) + '\n\n'
+  ) */
   postReq.write(postData)
   postReq.end()
 }

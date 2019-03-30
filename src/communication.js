@@ -14,9 +14,9 @@ function setPort (p) {
 async function processData (req, res) {
   // console.log('processData /')
 
-  var data = req.body
+  /*var data = req.body
   var logSet
-  if (data.log_set.toString) {
+  if (data.log_set.toString()) {
     logSet = JSON.parse(data.log_set.toString())
     console.log(data.log_set.toString())
   } else {
@@ -24,7 +24,7 @@ async function processData (req, res) {
     res.end(`Data sent is incorrect`)
     // re
   }
-  addToQueue(logSet)
+  addToQueue(logSet)*/
 
   // logSet.auditLogs[0].logData : this is the stuff you add to the redis thing.
 
@@ -47,7 +47,7 @@ function addToQueue (logSet) {
 
 async function showHelp (req, res) {
   var options = {
-    host: 'localhost',
+    host: 'https://still-oasis-34724.herokuapp.com',
     port: port,
     path: '/uploadLog',
     method: 'POST',
