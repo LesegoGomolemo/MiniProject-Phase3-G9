@@ -9,3 +9,7 @@ install:
 
 script:
   - npm run lint:fix
+  - npm run test:coveralls
+
+deploy:
+  - git push heroku master
