@@ -11,7 +11,8 @@
     "lint:fix": "prettier-eslint **/*.js --write",
     "build": "npm --prefix ./src install ./src && npm install",
     "test": "jest",
-    "test-coverage": "jest --collectCoverageFrom=**/* --coverage",
+    "test:coverage": "jest --collectCoverageFrom=**/* --coverage",
+    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "start": "node src/index.js"
   },
   "dependencies": {
@@ -24,7 +25,8 @@
     "eslint-plugin-standard": "^4.0.0",
     "jest": "^24.5.0",
     "prettier-eslint": "^8.8.2",
-    "prettier-eslint-cli": "^4.7.1"
+    "prettier-eslint-cli": "^4.7.1",
+    "coveralls": "^3.0.3"
   },
   "repository": {
     "type": "git",
@@ -46,6 +48,7 @@
   "homepage": "https://github.com/LesegoGomolemo/MiniProject-Phase3-G9#readme",
   "devDependencies": {
     "ajv": "^6.10.0",
+    "coveralls": "^3.0.3",
     "eslint": "^5.15.3",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.16.0",
