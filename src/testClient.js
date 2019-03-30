@@ -11,7 +11,7 @@ function PostCode (logData) {
   // An object of options to indicate where to post to
   var postOptions = {
     host: 'still-oasis-34724.herokuapp.com',
-    port: '35540',
+    port: '80',
     path: '/uploadLog',
     method: 'POST',
     headers: {

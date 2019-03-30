@@ -14,7 +14,6 @@ const app = express()
 
 logSetQueue.start()
 communication.setQueue(logSetQueue)
-communication.setPort(port)
 dbManager.setQueue(logSetQueue)
 
 // express server operations

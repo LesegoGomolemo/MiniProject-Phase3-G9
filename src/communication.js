@@ -1,14 +1,9 @@
 // attributes
 var logSetQueue
-var port
 
 // communication class operations
 function setQueue (queue) {
   logSetQueue = queue
-}
-
-function setPort (p) {
-  port = p
 }
 
 async function processData (req, res) {
@@ -48,7 +43,7 @@ function addToQueue (logSet) {
 async function showHelp (req, res) {
   var options = {
     host: 'https://still-oasis-34724.herokuapp.com',
-    port: port,
+    port: 80,
     path: '/uploadLog',
     method: 'POST',
     headers: {
