@@ -2,7 +2,7 @@
   "name": "MiniProject-Phase3-G9",
   "version": "1.0.0",
   "description": "A repository for our final year Software Engineering mini project.",
-  "main": "index.js",
+  "main": "src/server.js",
   "directories": {
     "doc": "docs"
   },
