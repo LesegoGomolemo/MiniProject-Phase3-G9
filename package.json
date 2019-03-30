@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint **/*.js",
     "lint:fix": "prettier-eslint **/*.js --write",
-    "build": "npm install && 'cd /src' && npm install",
+    "build": "npm --prefix ./src install ./src && npm install",
     "test": "jest",
     "test-coverage": "jest --collectCoverageFrom=**/* --coverage"
   },
@@ -17,7 +17,14 @@
     "type": "git",
     "url": "git+https://github.com/LesegoGomolemo/MiniProject-Phase3-G9.git"
   },
-  "keywords": [],
+  "keywords": [
+    "node",
+    "heroku",
+    "express",
+    "postgres",
+    "html",
+    "php"
+  ],
   "author": "Merlot Group 9",
   "license": "ISC",
   "bugs": {
