@@ -2,7 +2,7 @@
   "name": "MiniProject-Phase3-G9",
   "version": "1.0.0",
   "description": "A repository for our final year Software Engineering mini project.",
-  "main": "src/server.js",
+  "main": "src/index.js",
   "directories": {
     "doc": "docs"
   },
@@ -11,7 +11,8 @@
     "lint:fix": "prettier-eslint **/*.js --write",
     "build": "npm --prefix ./src install ./src && npm install",
     "test": "jest",
-    "test-coverage": "jest --collectCoverageFrom=**/* --coverage"
+    "test-coverage": "jest --collectCoverageFrom=**/* --coverage",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",

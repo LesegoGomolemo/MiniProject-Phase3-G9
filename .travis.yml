@@ -2,10 +2,10 @@ sudo: false
 
 language: node_js
 node_js:
-  - "7"
+  - "8"
 
 install:
-  - npm install
+  - npm run-script build
 
 script:
-  - echo "Batch script is to follow"
+  - npm run lint:fix
