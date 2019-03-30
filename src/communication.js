@@ -71,7 +71,6 @@ async function showHelp (req, res) {
 module.exports = {
   processData,
   setQueue,
-  setPort,
   addToQueue,
   showHelp
 }

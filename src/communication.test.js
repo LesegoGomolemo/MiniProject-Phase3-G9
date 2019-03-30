@@ -1,17 +1,12 @@
 const {
   processData,
   setQueue,
-  setPort,
   addToQueue,
   showHelp
 } = require('./communication')
 
 test('setQueue should be defined', () => {
   expect(setQueue).toBeDefined()
-})
-
-test('setPort should be defined', () => {
-  expect(setPort).toBeDefined()
 })
 
 /* test('setQueue given queue parameter', () => {
