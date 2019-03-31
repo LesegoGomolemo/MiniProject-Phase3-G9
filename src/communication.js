@@ -17,14 +17,14 @@ async function processData (req, res) {
   } else {
     res.writeHead(200, { 'Content-Type': 'text/plain' })
     res.end(`Data sent is incorrect`)
-    // re
+    //
   }
   addToQueue(logSet)
 
   // logSet.auditLogs[0].logData : this is the stuff you add to the redis thing.
 
   res.writeHead(200, { 'Content-Type': 'text/plain' })
-  res.end(`View info on the console`)
+  res.end(`Success: Logs have been recieved.`)
 }
 
 function addToQueue (logSet) {
