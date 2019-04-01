@@ -94,11 +94,16 @@ async function showHelp (req, res) {
     "system": "accounts"}` +
       `\n\nvii. Notifications: \n\n` +
       `{ "logs":
-      [ { clientID: 782459825789, notificationType: 'Email', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat tincidunt ex id mattis. Vivamus dictum.', timestamp: '2018-21-09:18:45:15' },
-        { clientID: 782459825789, notificationType: 'Email', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat tincidunt ex id mattis. Vivamus dictum.', timestamp: '2018-21-09:18:45:15' },
-        { clientID: 782459825789, notificationType: 'Email', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat tincidunt ex id mattis. Vivamus dictum.', timestamp: '2018-21-09:18:45:15' }],
+      [ { clientID: 782459825789, notificationType: 'Email', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', timestamp: '2018-21-09:18:45:15' },
+        { clientID: 782459825789, notificationType: 'Email', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', timestamp: '2018-21-09:18:45:15' },
+        { clientID: 782459825789, notificationType: 'Email', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', timestamp: '2018-21-09:18:45:15' }],
     "system": "notif"}` +
-      `\n\nviii. ATM: To Follow...` +
+      `\n\nviii. ATM: \n\n` +
+      `{ "logs":
+      [ { atmID: 154896, clientID: 485697, timestamp: '2018-21-09:18:45:15', eventType: 'Deposit'},
+        { atmID: 154896, clientID: 485697, timestamp: '2018-21-09:18:45:15', eventType: 'Withdrawal'},
+        { atmID: 154896, clientID: 485697, timestamp: '2018-21-09:18:45:15', eventType: 'Balance'}]
+    "system": "atm"}` +
       `\n\nQueries: u15055214@tuks.co.za`
   )
 }
