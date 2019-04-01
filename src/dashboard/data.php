@@ -1,17 +1,17 @@
 <?php include 'DBConnect.php'; ?>
 <?php
-    $dataPoints1 = array(
-        array("y" => 6, "label" => "Apple"),
-        array("y" => 4, "label" => "Mango"),
-        array("y" => 5, "label" => "Orange"),
-        array("y" => 7, "label" => "Banana"),
-        array("y" => 4, "label" => "Pineapple"),
-        array("y" => 6, "label" => "Pears"),
-        array("y" => 7, "label" => "Grapes"),
-        array("y" => 5, "label" => "Lychee"),
-        array("y" => 4, "label" => "Jackfruit")
-    );
-
+    //QUERY FOR DAILY ACTIVITY FOR 7 DAYS
+    $dataPoints1 = array();
+    $count = 7;
+    while($count > 0) {
+        $query = "SELECT to_char(\"timestamp\", 'Day') as day, COUNT(a.*) FROM (SELECT * FROM public.\"Accounts\" WHERE \"timestamp\" BETWEEN CURRENT_DATE - INTERVAL '$count days' AND CURRENT_DATE - INTERVAL '". ($count - 1) ." days') AS a GROUP BY \"timestamp\"";
+        $result = $db->query($query);
+        
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $dataPoints1[] = array("y" => $row["count"], "label" => substr($row["day"], 0 - strlen($row["day"]), strlen($row["day"]) - 2));
+        }
+        $count--;
+    }
 
     //QUERY FOR NUMBER OF EACH ACCOUNT TYPE
     $query = "SELECT \"accountType\", COUNT(*) as count FROM public.\"Accounts\" GROUP BY \"accountType\" ORDER BY count DESC";
