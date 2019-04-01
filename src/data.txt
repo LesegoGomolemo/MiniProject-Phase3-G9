@@ -35,15 +35,15 @@
   "system": "otp"}
 
 { "logs":
-    [ { clientID: 782459825789, accountID: 88556974158, eventDescription: 'Changed Password', timestamp: '2018-21-09:18:45:15' },
-      { clientID: 782459825789, accountID: 88556974158, eventDescription: 'Changed Password', timestamp: '2018-21-09:18:45:15' },
-      { clientID: 782459825789, accountID: 88556974158, eventDescription: 'Changed Password', timestamp: '2018-21-09:18:45:15' }],
+    [ { clientID: 782459825789, accountID: 88556974158, eventType: 'Changed Password', timestamp: '2018-21-09:18:45:15' },
+      { clientID: 782459825789, accountID: 88556974158, eventType: 'Changed Password', timestamp: '2018-21-09:18:45:15' },
+      { clientID: 782459825789, accountID: 88556974158, eventType: 'Changed Password', timestamp: '2018-21-09:18:45:15' }],
   "system": "client"}
 
 { "logs":
-    [ { clientID: 782459825789, accountID: 88556974158, accountType: 'Student Cheque', eventDescription: 'Created Account', timestamp: '2018-21-09:18:45:15'},
-      { clientID: 782459825789, accountID: 88556974158, accountType: 'Platinum', eventDescription: 'Created Account', timestamp: '2018-21-09:18:45:15'},
-      { clientID: 782459825789, accountID: 88556974158, accountType: 'Gold', eventDescription: 'Created Account', timestamp: '2018-21-09:18:45:15'}],
+    [ { clientID: 782459825789, accountID: 88556974158, accountType: 'Student Cheque', eventType: 'Created Account', timestamp: '2018-21-09:18:45:15'},
+      { clientID: 782459825789, accountID: 88556974158, accountType: 'Platinum', eventType: 'Created Account', timestamp: '2018-21-09:18:45:15'},
+      { clientID: 782459825789, accountID: 88556974158, accountType: 'Gold', eventType: 'Created Account', timestamp: '2018-21-09:18:45:15'}],
   "system": "accounts"}
 
 { "logs":

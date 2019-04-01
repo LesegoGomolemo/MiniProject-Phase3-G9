@@ -16,7 +16,7 @@ async function processData (req, res) {
     console.log(data.log_set.toString())
   } else {
     res.writeHead(200, { 'Content-Type': 'text/plain' })
-    res.end(`Data sent is incorrect`)
+    res.end(`Data not accepted.`)
     //
   }
   addToQueue(logSet)
