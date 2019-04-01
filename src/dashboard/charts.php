@@ -37,6 +37,56 @@ $(function () {
         });
         chart.render();
     });
-</script>
 
+    $(function () {
+        var chart = new CanvasJS.Chart("chart-sml-1", {
+            theme: "light1",
+            animationEnabled: true,
+            title: {
+                text: "Number of each account type"
+            },
+            data: [
+            {
+                type: "pie",                
+                dataPoints: <?php echo json_encode($dataPoints2, JSON_NUMERIC_CHECK); ?>
+            }
+            ]
+        });
+        chart.render();
+    });
+
+    $(function () {
+        var chart = new CanvasJS.Chart("chart-sml-2", {
+            theme: "light1",
+            animationEnabled: true,
+            title: {
+                text: "Total Successful VS Failed logins"
+            },
+            data: [
+            {
+                type: "doughnut",                
+                dataPoints: <?php echo json_encode($dataPoints3, JSON_NUMERIC_CHECK); ?>
+            }
+            ]
+        });
+        chart.render();
+    });
+
+    $(function () {
+        var chart = new CanvasJS.Chart("chart-sml-3", {
+            theme: "light1",
+            animationEnabled: true,
+            title: {
+                text: "Popular actions performed"
+            },
+            data: [
+            {
+                type: "bar",                
+                dataPoints: <?php echo json_encode($dataPoints4, JSON_NUMERIC_CHECK); ?>
+            }
+            ]
+        });
+        chart.render();
+    });
+</script>
 
