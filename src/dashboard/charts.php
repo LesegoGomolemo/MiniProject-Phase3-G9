@@ -4,14 +4,17 @@
 </div>
 
 <div class="small-div-parent div-big">
-    <div id="subDiv1" class="holder-div div-sml">
+<div id="subDiv1" class="holder-div div-sml">
         <div class="chart-crop"><div id="chart-sml-1" class="chart"></div></div>
     </div>
+
     <div id="subDiv2" class="holder-div div-sml">
         <div class="chart-crop"><div id="chart-sml-2" class="chart"></div></div>
     </div>
 
-
+    <div id="subDiv3" class="holder-div div-sml">
+        <div class="chart-crop"><div id="chart-sml-3" class="chart"></div></div>
+    </div>
 </div>
 
 <?php include 'data.php'; ?>
