@@ -1,8 +1,12 @@
 <?php include 'header.php'; ?>
 <!-- INSIDE BODY -->
 
-<?php include 'charts.php';?>
-<?php include 'DBConnect.php'; ?>
+<div class="dashBoard" id="dashBoard">
+    <?php include 'charts.php';?>
+</div>
 
+<div class="logs" id="logs">
+
+</div>
 <!-- EXIT BODY -->
 <?php include 'footer.php'; ?>
