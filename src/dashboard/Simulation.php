@@ -18,10 +18,11 @@
 				</tr>
 			</thead>
 		</table>
-    <form action="NFC2.php" method="post">
-		<table align="center" style="width:90%;" class="table">
+	<form action="Simulation2.php" method="post">
+		<table align="center" style="width:80%;" class="table">
 			<thead>
 			  <tr>
+				
 				<td>
 					<select class="form-control" name="chosenPeriod">
 						<option value="SelectPeriod">-Select Period-</option>
@@ -31,25 +32,23 @@
 						<option value="1Month">1 Month</option>
 					 </select>
 				</td>
-				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert Client ID -"></td>
+				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert CLient ID -"></td>
 				<td><input class="form-control" type="text" name="atmID" value="" placeholder="- Insert ATM ID -"></td>
+				
+				
 				<td>
-					<select class="form-control" name="chosenNFCType">
-						<option value="NFCType">-Select NFC Type-</option>
-						<option value="Phone">Phone</option>
-						<option value="ATM">ATM</option>
+					<select class="form-control" name="chosenEventType">
+						<option value="EventType">-Select Event Type-</option>
+						<option value="Withdrawal">Withdrawal</option>
+						<option value="Deposit">Deposit</option>
+						<option value="Balance">Balance</option>
+						<option value="Transfer">Transfer</option>
 					</select>
 				</td>
-				<td>
-					<select class="form-control" name="isSuccess">
-						<option value="Success">-Success-</option>
-						<option value="false">False</option>
-						<option value="true">True</option>
-					</select>
-				</td>
+				
 				<td><input class="form-control" type='submit' style="background-color:lightsteelblue"/></td>
 			  </tr>
 			</thead>
 		</table>
-	</form>   
+	</form>  
 <?php include 'footer.php';?>

@@ -2,10 +2,7 @@
 	 <!--table, th{
 	    border: 1px solid black;
 	}-->
-    
-
-    <!-- style="position:fixed"-->   
-	<div>
+	 
 	<table align="center" style="width:80%;" class="table">
 			<thead>
 				<tr>
@@ -25,7 +22,7 @@
 				</tr>
 			</thead>
 		</table>
-    <form action="NFC2.php" method="post">
+	<form action="Facial2.php" method="post">
 		<table align="center" style="width:90%;" class="table">
 			<thead>
 			  <tr>
@@ -40,13 +37,8 @@
 				</td>
 				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert Client ID -"></td>
 				<td><input class="form-control" type="text" name="atmID" value="" placeholder="- Insert ATM ID -"></td>
-				<td>
-					<select class="form-control" name="chosenNFCType">
-						<option value="NFCType">-Select NFC Type-</option>
-						<option value="Phone">Phone</option>
-						<option value="ATM">ATM</option>
-					</select>
-				</td>
+				<td><input class="form-control" type="text" name="duration" value="" placeholder="- Insert Duration (ms) -"></td>
+				
 				<td>
 					<select class="form-control" name="isSuccess">
 						<option value="Success">-Success-</option>
@@ -59,11 +51,8 @@
 			</thead>
 		</table>
 	</form>  
-	</div>
-	<br/>
-
-
-<?php include 'DBConnect.php'; ?>
+	
+	<?php include 'DBConnect.php'; ?>
 <?php
 	/*$db = new mysqli("localhost", "root","","logsdb");
 		
@@ -83,7 +72,7 @@
 	$period = getOption($_POST["chosenPeriod"]);
 	$clientID = (int)$_POST["clientID"];
 	$atmID = (int)$_POST["atmID"];
-	$nfcType = getOption($_POST["chosenNFCType"]);
+	$duration = (int)$_POST["duration"];
 	$success = getOption($_POST["isSuccess"]);
 	
 	
@@ -94,9 +83,9 @@
 	//session_start();
 	//$table = $_SESSION['table1'];
 	
-	$sql = "SELECT * FROM public.\"NFC\"";
+	$sql = "SELECT * FROM public.\"Facial\"";
 
-	if($period == "SelectPeriod" && $clientID == "" && $atmID == "" && $nfcType == "NFCType" && $success == "Success")
+	if($period == "SelectPeriod" && $clientID == "" && $atmID == "" && $duration == "" && $success == "Success")
 	{
 	
 	}
@@ -128,8 +117,8 @@
 		$sql .= " AND \"clientID\" = ".$clientID;
 		if($atmID)
 	 		$sql .= " AND \"atmID\" = ".$atmID; 
-		if($nfcType && $nfcType != "NFCType")
-			$sql .= " AND \"nfcType\" = '{".$nfcType."}'";
+		if($duration)
+			$sql .= " AND \"duration\" = '{".$duration."}'";
 		if($success && $success != "Success")
 			$sql .= " AND success = '".$success."'";
 
@@ -139,36 +128,48 @@
 		$sql .= " \"clientID\" = ".$clientID;
 		if($atmID)
 	 		$sql .= " AND \"atmID\" = ".$atmID; 
-		if($nfcType && $nfcType != "NFCType")
-			$sql .= " AND \"nfcType\" = '{".$nfcType."}'";
+		if($duration)
+			$sql .= " AND \"duration\" = '{".$duration."}'";
 		if($success && $success != "Success")
-			$sql .= " AND success = ".$success;
+			$sql .= " AND success = '".$success."'";
 	}
 	else if($atmID)
 	{
 		$sql .= " \"atmID\" = ".$atmID; 
-		if($nfcType && $nfcType != "NFCType")
-			$sql .= " AND \"nfcType\" = '{".$nfcType."}'";
+		if($duration)
+			$sql .= " AND \"duration\" = '{".$duration."}'";
 		if($success && $success != "Success")
-			$sql .= " AND success = ".$success;
+			$sql .= " AND success = '".$success."'";
 	}
-	else if($nfcType && $nfcType != "NFCType")
+	else if($duration)
 	{
-		$sql .= " \"nfcType\" = '{".$nfcType."}'";
+		$sql .= " \"duration\" = ".$duration;
 		if($success && $success != "Success")
-			$sql .= " AND success = ".$success;
+			$sql .= " AND success = '".$success."'";
 	}
 	else if($success && $success != "Success")
 	{
 		$sql .= " success = ".$success;
 	}
 
-	
-	
 	$sql .= " ORDER BY \"logID\" ASC";
-
+	
 	$result = $db->query($sql);
-                ?>
+                
+             /*   echo "<a href=\"#\" id=\"nfc\" onClick=\"fnExcelReport()\">download</a>";
+                echo "<br/>";
+
+				
+
+                echo "<table align:\"center\" name:\"nfcTable\" id:\"nfcTable\">";
+				echo "<thead>
+						<tr><th>Log ID</th><th>Client ID</th><th>ATM ID</th><th>Duration</th><th>Success?</th><th>Timestamp</th></tr>
+					</thead>";
+                echo "<tbody style=\"height:200px; overflow:scroll\">";
+				echo "<div>";
+				*/
+
+?>
                 <!--
 				<a href="#" id="nfc" onClick="fnExcelReport()">download</a>
 				-->
@@ -182,7 +183,7 @@
 							<th scope="col">Log ID</th>
 							<th scope="col">Client ID</th>
 							<th scope="col">ATM ID</th>
-							<th scope="col">NFC Type</th>
+							<th scope="col">Duration</th>
 							<th scope="col">Success?</th>
 							<th scope="col">Timestamp</th>
 						</tr>
@@ -216,7 +217,7 @@
 			echo "<tr><td colspan=\"6\">0 Results Found</td></tr>";
 		}
 
-		
+		echo "</div>";
 		echo "</tbody>";
 		echo "</table>";
 		
@@ -262,4 +263,3 @@
 
 ?>
 <?php include 'footer.php';?>
-

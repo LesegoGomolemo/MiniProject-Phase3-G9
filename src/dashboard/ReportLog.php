@@ -1,5 +1,9 @@
 <?php include 'header.php';?>
-	 <table align="center" style="width:80%;" class="table">
+	 <!--table, th{
+	    border: 1px solid black;
+	}-->
+    
+    <table align="center" style="width:80%;" class="table">
 			<thead>
 				<tr>
 				<td>
@@ -18,7 +22,9 @@
 				</tr>
 			</thead>
 		</table>
-    <form action="NFC2.php" method="post">
+       
+
+	<form action="ReportLog2.php" method="post">
 		<table align="center" style="width:90%;" class="table">
 			<thead>
 			  <tr>
@@ -31,20 +37,18 @@
 						<option value="1Month">1 Month</option>
 					 </select>
 				</td>
-				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert Client ID -"></td>
-				<td><input class="form-control" type="text" name="atmID" value="" placeholder="- Insert ATM ID -"></td>
 				<td>
-					<select class="form-control" name="chosenNFCType">
-						<option value="NFCType">-Select NFC Type-</option>
-						<option value="Phone">Phone</option>
-						<option value="ATM">ATM</option>
-					</select>
-				</td>
-				<td>
-					<select class="form-control" name="isSuccess">
-						<option value="Success">-Success-</option>
-						<option value="false">False</option>
-						<option value="true">True</option>
+					<select class="form-control" name="chosenEventType">
+						<option value="EventType">-Select Event Type-</option>
+						<option value="Search">Search</option>
+						<option value="">Refresh</option>
+						<option value="Download Excel">Refresh</option>
+						<option value="Authentication">Search</option>
+						<option value="Facial Recognition">Facial Recognition</option>
+						<option value="OTP">OTP</option>
+						<option value="NFC">NFC</option>
+						<option value="Simulation">Simulation</option>
+						<option value="Information">Client Information</option>
 					</select>
 				</td>
 				<td><input class="form-control" type='submit' style="background-color:lightsteelblue"/></td>

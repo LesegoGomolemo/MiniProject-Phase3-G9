@@ -1,11 +1,5 @@
 <?php include 'header.php';?>
-	 <!--table, th{
-	    border: 1px solid black;
-	}-->
-    
-
-    <!-- style="position:fixed"-->   
-	<div>
+	 
 	<table align="center" style="width:80%;" class="table">
 			<thead>
 				<tr>
@@ -25,7 +19,9 @@
 				</tr>
 			</thead>
 		</table>
-    <form action="NFC2.php" method="post">
+       
+
+	<form action="ReportLog2.php" method="post">
 		<table align="center" style="width:90%;" class="table">
 			<thead>
 			  <tr>
@@ -38,32 +34,27 @@
 						<option value="1Month">1 Month</option>
 					 </select>
 				</td>
-				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert Client ID -"></td>
-				<td><input class="form-control" type="text" name="atmID" value="" placeholder="- Insert ATM ID -"></td>
 				<td>
-					<select class="form-control" name="chosenNFCType">
-						<option value="NFCType">-Select NFC Type-</option>
-						<option value="Phone">Phone</option>
-						<option value="ATM">ATM</option>
-					</select>
-				</td>
-				<td>
-					<select class="form-control" name="isSuccess">
-						<option value="Success">-Success-</option>
-						<option value="false">False</option>
-						<option value="true">True</option>
+					<select class="form-control" name="chosenEventType">
+						<option value="EventType">-Select Event Type-</option>
+						<option value="Search">Search</option>
+						<option value="">Refresh</option>
+						<option value="Download Excel">Refresh</option>
+						<option value="Authentication">Search</option>
+						<option value="Facial Recognition">Facial Recognition</option>
+						<option value="OTP">OTP</option>
+						<option value="NFC">NFC</option>
+						<option value="Simulation">Simulation</option>
+						<option value="Information">Client Information</option>
 					</select>
 				</td>
 				<td><input class="form-control" type='submit' style="background-color:lightsteelblue"/></td>
 			  </tr>
 			</thead>
 		</table>
-	</form>  
-	</div>
-	<br/>
+	</form> 
 
-
-<?php include 'DBConnect.php'; ?>
+	<?php include 'DBConnect.php'; ?>
 <?php
 	/*$db = new mysqli("localhost", "root","","logsdb");
 		
@@ -81,10 +72,9 @@
 		}
 	
 	$period = getOption($_POST["chosenPeriod"]);
-	$clientID = (int)$_POST["clientID"];
-	$atmID = (int)$_POST["atmID"];
-	$nfcType = getOption($_POST["chosenNFCType"]);
-	$success = getOption($_POST["isSuccess"]);
+	
+	$eventType = getOption($_POST["chosenEventType"]);
+	
 	
 	
 	//logID, clientID, atmID, nfcType, success, "timestamp"
@@ -94,9 +84,9 @@
 	//session_start();
 	//$table = $_SESSION['table1'];
 	
-	$sql = "SELECT * FROM public.\"NFC\"";
+	$sql = "SELECT * FROM public.\"ReportLogs\"";
 
-	if($period == "SelectPeriod" && $clientID == "" && $atmID == "" && $nfcType == "NFCType" && $success == "Success")
+	if($period == "SelectPeriod" && $eventType == "EventType")
 	{
 	
 	}
@@ -124,51 +114,45 @@
 				break;
 		}
 
-		if($clientID ) 
-		$sql .= " AND \"clientID\" = ".$clientID;
-		if($atmID)
-	 		$sql .= " AND \"atmID\" = ".$atmID; 
-		if($nfcType && $nfcType != "NFCType")
-			$sql .= " AND \"nfcType\" = '{".$nfcType."}'";
-		if($success && $success != "Success")
-			$sql .= " AND success = '".$success."'";
+		
+		if($eventType && $eventType != "EventType")
+		{
+			if($eventType == "Facial Recognition" || $eventType == "Download Excel" )
+			{
+				$sql .= " AND \"eventType\" = '{\"";
+				$sql .= $eventType;
+				$sql .= "\"}'";
+				}
+			else
+				$sql .= " AND \"eventType\" = '{".$eventType."}'";
+		}
 
 	}
-	else if($clientID )
+	else if($eventType && $eventType != "EventType")
 	{
-		$sql .= " \"clientID\" = ".$clientID;
-		if($atmID)
-	 		$sql .= " AND \"atmID\" = ".$atmID; 
-		if($nfcType && $nfcType != "NFCType")
-			$sql .= " AND \"nfcType\" = '{".$nfcType."}'";
-		if($success && $success != "Success")
-			$sql .= " AND success = ".$success;
-	}
-	else if($atmID)
-	{
-		$sql .= " \"atmID\" = ".$atmID; 
-		if($nfcType && $nfcType != "NFCType")
-			$sql .= " AND \"nfcType\" = '{".$nfcType."}'";
-		if($success && $success != "Success")
-			$sql .= " AND success = ".$success;
-	}
-	else if($nfcType && $nfcType != "NFCType")
-	{
-		$sql .= " \"nfcType\" = '{".$nfcType."}'";
-		if($success && $success != "Success")
-			$sql .= " AND success = ".$success;
-	}
-	else if($success && $success != "Success")
-	{
-		$sql .= " success = ".$success;
+		$sql .= " \"eventType\" = '{".$eventType."}'";
+		
 	}
 
-	
-	
 	$sql .= " ORDER BY \"logID\" ASC";
 
 	$result = $db->query($sql);
-                ?>
+
+	/*
+                
+                echo "<a href=\"#\" id=\"nfc\" onClick=\"fnExcelReport()\">download</a>";
+                echo "<br/>";
+
+				
+
+                echo "<table align:\"center\" name:\"nfcTable\" id:\"nfcTable\">";
+				echo "<thead>
+						<tr><th>Log ID</th><th>Event Type</th><th>Timestamp</th></tr>
+					</thead>";
+                echo "<tbody style=\"height:200px; overflow:scroll\">";
+				echo "<div>";
+		*/		
+?>
                 <!--
 				<a href="#" id="nfc" onClick="fnExcelReport()">download</a>
 				-->
@@ -180,17 +164,13 @@
 					<thead class="thead-light">
 						<tr>
 							<th scope="col">Log ID</th>
-							<th scope="col">Client ID</th>
-							<th scope="col">ATM ID</th>
-							<th scope="col">NFC Type</th>
-							<th scope="col">Success?</th>
+							<th scope="col">Event Type</th>
 							<th scope="col">Timestamp</th>
 						</tr>
 					</thead>
 					<tbody>
 				
 <?php
-
 				
 		if($result->rowCount() > 0) 
 		{
@@ -213,10 +193,10 @@
 		}
 		else
 		{
-			echo "<tr><td colspan=\"6\">0 Results Found</td></tr>";
+			echo "<tr><td colspan=\"3\">0 Results Found</td></tr>";
 		}
 
-		
+		echo "</div>";
 		echo "</tbody>";
 		echo "</table>";
 		
@@ -262,4 +242,3 @@
 
 ?>
 <?php include 'footer.php';?>
-

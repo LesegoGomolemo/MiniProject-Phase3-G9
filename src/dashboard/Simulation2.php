@@ -1,11 +1,4 @@
 <?php include 'header.php';?>
-	 <!--table, th{
-	    border: 1px solid black;
-	}-->
-    
-
-    <!-- style="position:fixed"-->   
-	<div>
 	<table align="center" style="width:80%;" class="table">
 			<thead>
 				<tr>
@@ -25,10 +18,11 @@
 				</tr>
 			</thead>
 		</table>
-    <form action="NFC2.php" method="post">
-		<table align="center" style="width:90%;" class="table">
+	<form action="Simulation2.php" method="post">
+		<table align="center" style="width:80%;" class="table">
 			<thead>
 			  <tr>
+				
 				<td>
 					<select class="form-control" name="chosenPeriod">
 						<option value="SelectPeriod">-Select Period-</option>
@@ -38,40 +32,29 @@
 						<option value="1Month">1 Month</option>
 					 </select>
 				</td>
-				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert Client ID -"></td>
+				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert CLient ID -"></td>
 				<td><input class="form-control" type="text" name="atmID" value="" placeholder="- Insert ATM ID -"></td>
+				
+				
 				<td>
-					<select class="form-control" name="chosenNFCType">
-						<option value="NFCType">-Select NFC Type-</option>
-						<option value="Phone">Phone</option>
-						<option value="ATM">ATM</option>
+					<select class="form-control" name="chosenEventType">
+						<option value="EventType">-Select Event Type-</option>
+						<option value="Withdrawal">Withdrawal</option>
+						<option value="Deposit">Deposit</option>
+						<option value="Balance">Balance</option>
+						<option value="Transfer">Transfer</option>
 					</select>
 				</td>
-				<td>
-					<select class="form-control" name="isSuccess">
-						<option value="Success">-Success-</option>
-						<option value="false">False</option>
-						<option value="true">True</option>
-					</select>
-				</td>
+				
 				<td><input class="form-control" type='submit' style="background-color:lightsteelblue"/></td>
 			  </tr>
 			</thead>
 		</table>
-	</form>  
-	</div>
-	<br/>
+	</form>   
 
-
-<?php include 'DBConnect.php'; ?>
+	<?php include 'DBConnect.php'; ?>
 <?php
-	/*$db = new mysqli("localhost", "root","","logsdb");
-		
-		if(!$db){
-			die("Connection failed: ".mysqli_connect_error());
-		}
-*/
-        
+	  
         
 	function getOption($option) {
 		  $option = trim($option);
@@ -83,20 +66,12 @@
 	$period = getOption($_POST["chosenPeriod"]);
 	$clientID = (int)$_POST["clientID"];
 	$atmID = (int)$_POST["atmID"];
-	$nfcType = getOption($_POST["chosenNFCType"]);
-	$success = getOption($_POST["isSuccess"]);
+	$eventType = getOption($_POST["chosenEventType"]);
 	
 	
-	//logID, clientID, atmID, nfcType, success, "timestamp"
-	//SELECT "logID", "clientID", "atmID", "nfcType", success, "timestamp"
-        //FROM public."NFC"
-        
-	//session_start();
-	//$table = $_SESSION['table1'];
-	
-	$sql = "SELECT * FROM public.\"NFC\"";
+	$sql = "SELECT * FROM public.\"Simulation\"";
 
-	if($period == "SelectPeriod" && $clientID == "" && $atmID == "" && $nfcType == "NFCType" && $success == "Success")
+	if($period == "SelectPeriod" && $atmID == "" && $clientID == "" && $eventType == "EventType")
 	{
 	
 	}
@@ -124,51 +99,46 @@
 				break;
 		}
 
-		if($clientID ) 
-		$sql .= " AND \"clientID\" = ".$clientID;
-		if($atmID)
-	 		$sql .= " AND \"atmID\" = ".$atmID; 
-		if($nfcType && $nfcType != "NFCType")
-			$sql .= " AND \"nfcType\" = '{".$nfcType."}'";
-		if($success && $success != "Success")
-			$sql .= " AND success = '".$success."'";
+		if($clientID) 
+			$sql .= " AND \"clientID\" = ".$clientID;
+		if($atmID) 
+			$sql .= " AND \"atmID\" = ".$atmID;
+		if($eventType && $eventType != "EventType")
+			$sql .= " AND \"eventType\" = '{".$eventType."}'";
+		
 
 	}
-	else if($clientID )
+	else if($clientID)
 	{
 		$sql .= " \"clientID\" = ".$clientID;
-		if($atmID)
-	 		$sql .= " AND \"atmID\" = ".$atmID; 
-		if($nfcType && $nfcType != "NFCType")
-			$sql .= " AND \"nfcType\" = '{".$nfcType."}'";
-		if($success && $success != "Success")
-			$sql .= " AND success = ".$success;
+		if($atmID) 
+			$sql .= " AND \"atmID\" = ".$atmID;
+		if($eventType && $eventType != "EventType")
+			$sql .= " AND \"eventType\" = '{".$eventType."}'";
 	}
 	else if($atmID)
 	{
-		$sql .= " \"atmID\" = ".$atmID; 
-		if($nfcType && $nfcType != "NFCType")
-			$sql .= " AND \"nfcType\" = '{".$nfcType."}'";
-		if($success && $success != "Success")
-			$sql .= " AND success = ".$success;
-	}
-	else if($nfcType && $nfcType != "NFCType")
-	{
-		$sql .= " \"nfcType\" = '{".$nfcType."}'";
-		if($success && $success != "Success")
-			$sql .= " AND success = ".$success;
-	}
-	else if($success && $success != "Success")
-	{
-		$sql .= " success = ".$success;
-	}
+		$sql .= " \"atmID\" = ".$atmID;
+		if($eventType && $eventType != "EventType")
+			$sql .= " AND \"eventType\" = '{".$eventType."}'";
+		
 
+	}
+	else if($eventType && $eventType != "EventType")
+	{
+		$sql .= " \"eventType\" = '{".$eventType."}'";
+	}
+	
+
+	
+	
+	
 	
 	
 	$sql .= " ORDER BY \"logID\" ASC";
 
 	$result = $db->query($sql);
-                ?>
+ ?>
                 <!--
 				<a href="#" id="nfc" onClick="fnExcelReport()">download</a>
 				-->
@@ -176,20 +146,20 @@
 
 				
 
-                <table  align="center" style="width:80%;" class="table table-sm table-bordered table-condensed "  >
+               <table  align="center" style="width:80%;" class="table table-sm table-bordered table-condensed "  >
 					<thead class="thead-light">
 						<tr>
 							<th scope="col">Log ID</th>
 							<th scope="col">Client ID</th>
 							<th scope="col">ATM ID</th>
-							<th scope="col">NFC Type</th>
-							<th scope="col">Success?</th>
 							<th scope="col">Timestamp</th>
+							<th scope="col">Event Type</th>
 						</tr>
 					</thead>
 					<tbody>
 				
 <?php
+				
 
 				
 		if($result->rowCount() > 0) 
@@ -213,14 +183,14 @@
 		}
 		else
 		{
-			echo "<tr><td colspan=\"6\">0 Results Found</td></tr>";
+			echo "<tr><td colspan=\"5\">0 Results Found</td></tr>";
 		}
 
-		
+		echo "</div>";
 		echo "</tbody>";
 		echo "</table>";
-		
-        echo '<script>
+		?>
+        <script>
                 function fnExcelReport() {
 
                     windows.alert("just");
@@ -255,11 +225,6 @@
                     }
 
                 }
-            </script> ';
-                
-		
+            </script>
 
-
-?>
 <?php include 'footer.php';?>
-
