@@ -43,23 +43,23 @@ function test () {
   console.log('\nDatabase operation is done.')
 }
 
-function convertTimestamp(time){
+function convertTimestamp (time) {
   var thisTime = time
-  var newTime = thisTime.replace(/"/g,'\'')
-  return newTime;
+  var newTime = thisTime.replace(/"/g, "'")
+  return newTime
 }
-function cleanString(word){
-      var nfcType = word
-      var nfc = nfcType.replace(/"/g,'')
-      return nfc
+function cleanString (word) {
+  var nfcType = word
+  var nfc = nfcType.replace(/"/g, '')
+  return nfc
 }
-function getRandom(){
-  return Math.floor((Math.random()*10000)+500)
+function getRandom () {
+  return Math.floor(Math.random() * 10000 + 500)
 }
 
 function run () {
   // set a timer for now and call it every now and then
-
+  
   // connect
   connection.connect(function (error) {
     if (!error) {
@@ -87,10 +87,12 @@ function addToDB () {
     case 'auth':
       for (i = 0; i < holder.logs.length; i++) {
         var fields = holder.logs[i]
-        var logID = getRandom();
+        var logID = getRandom()
         var sql =
-          'INSERT INTO public."Authentication"' + ' (\"logID\",\"logType\",\"cardID\",\"cardType\",\"clientID\",\"description\",\"success\",\"timestamp\") VALUES (' +
-          logID + ', '+
+          'INSERT INTO public."Authentication"' +
+          ' ("logID","logType","cardID","cardType","clientID","description","success","timestamp") VALUES (' +
+          logID +
+          ', ' +
           JSON.stringify(fields.logType) +
           ', ' +
           JSON.stringify(fields.cardID) +
@@ -102,10 +104,10 @@ function addToDB () {
           JSON.stringify(fields.description) +
           '}, ' +
           JSON.stringify(fields.success) +
-          ', \'' +
+          ", '" +
           newtime +
-          '\')'
-       connection.query(sql, function (err, result) {
+          "')"
+        connection.query(sql, function (err, result) {
           if (err) throw err
           console.log('record successfully inserted')
         })
@@ -117,8 +119,9 @@ function addToDB () {
         var logID = getRandom()
         var newtime = convertTimestamp(fields.timestamp)
         var sql =
-          'INSERT INTO public."Simulation" (\"logID\",\"atmID\",\"clientID\",\"eventType\",\"eventDescription\",\"extraDetail\",\"timestamp\") VALUES (' +
-          logID + ', '+
+          'INSERT INTO public."Simulation" ("logID","atmID","clientID","eventType","eventDescription","extraDetail","timestamp") VALUES (' +
+          logID +
+          ', ' +
           JSON.stringify(fields.atmID) +
           ', ' +
           JSON.stringify(fields.clientID) +
@@ -128,11 +131,11 @@ function addToDB () {
           JSON.stringify(fields.eventDescription) +
           '}, {' +
           JSON.stringify(fields.extraDetail) +
-          '}, \'' +
+          "}, '" +
           newtime +
-          '\')'
-         // console.log(sql)
-      connection.query(sql, function (err, result) {
+          "')"
+        // console.log(sql)
+        connection.query(sql, function (err, result) {
           if (err) throw err
           console.log('record successfully inserted')
         })
@@ -141,11 +144,12 @@ function addToDB () {
     case 'face':
       for (i = 0; i < holder.logs.length; i++) {
         var fields = holder.logs[i]
-        var logID = getRandom();
+        var logID = getRandom()
         var newtime = convertTimestamp(fields.timestamp)
         var sql =
-          'INSERT INTO public."Facial" (\"logID\",\"clientID\",\"atmID\",\"duration\",\"success\",\"timestamp\") VALUES (' +
-          logID +  ', '+
+          'INSERT INTO public."Facial" ("logID","clientID","atmID","duration","success","timestamp") VALUES (' +
+          logID +
+          ', ' +
           JSON.stringify(fields.clientID) +
           ', ' +
           JSON.stringify(fields.atmID) +
@@ -153,11 +157,11 @@ function addToDB () {
           JSON.stringify(fields.duration) +
           ', ' +
           JSON.stringify(fields.success) +
-          ', \'' +
+          ", '" +
           newtime +
-          '\')'
-         // console.log(sql)
-       connection.query(sql, function (err, result) {
+          "')"
+        // console.log(sql)
+        connection.query(sql, function (err, result) {
           if (err) throw err
           console.log('record successfully inserted')
         })
@@ -167,90 +171,94 @@ function addToDB () {
       console.log('inserting into ' + logType)
       for (i = 0; i < holder.logs.length; i++) {
         var fields = holder.logs[i]
-        var logID = getRandom();
+        var logID = getRandom()
         var newtime = convertTimestamp(fields.timestamp)
         var nfcType = JSON.stringify(fields.nfcType)
-        var nfc = nfcType.replace(/"/g,'')
+        var nfc = nfcType.replace(/"/g, '')
         var sql =
-          'INSERT INTO public."NFC" (\"logID\",\"clientID\",\"atmID\",\"nfcType\",success,\"timestamp\") VALUES (' +
-          logID + ', '+
+          'INSERT INTO public."NFC" ("logID","clientID","atmID","nfcType",success,"timestamp") VALUES (' +
+          logID +
+          ', ' +
           JSON.stringify(fields.clientID) +
           ', ' +
           JSON.stringify(fields.atmID) +
-          ', \'{' +
+          ", '{" +
           nfc +
-          '}\', ' +
+          "}', " +
           JSON.stringify(fields.success) +
-          ', \'' +
+          ", '" +
           newtime +
-          '\')'
-         //console.log(sql)
-      connection.query(sql, function (error, rows, fields) {
-        if (error) console.log('An error has occured in the query')
-        else {
-          console.log('Successful query')
-        }
+          "')"
+        // console.log(sql)
+        connection.query(sql, function (error, rows, fields) {
+          if (error) console.log('An error has occured in the query')
+          else {
+            console.log('Successful query')
+          }
         })
       }
       break
     case 'otp':
       for (i = 0; i < holder.logs.length; i++) {
         var fields = holder.logs[i]
-        var logID = getRandom();
+        var logID = getRandom()
         var newtime = convertTimestamp(fields.timestamp)
         var sql =
-          'INSERT INTO public."OTP" (\"logID\",\"clientID\",\"pin\",\"success\",\"timestamp\")  VALUES (' +
-          logID + ', '+
+          'INSERT INTO public."OTP" ("logID","clientID","pin","success","timestamp")  VALUES (' +
+          logID +
+          ', ' +
           JSON.stringify(fields.clientID) +
           ', ' +
           JSON.stringify(fields.pin) +
-          ', '+
+          ', ' +
           JSON.stringify(fields.success) +
-          ', \'' +
+          ", '" +
           newtime +
-          '\')'
+          "')"
         // console.log(sql)
         connection.query(sql, function (error, rows, fields) {
-        if (error) console.log('An error has occured in the query')
-        else {
-          console.log('Successful query')
-        }
+          if (error) console.log('An error has occured in the query')
+          else {
+            console.log('Successful query')
+          }
         })
       }
       break
     case 'client':
       for (i = 0; i < holder.logs.length; i++) {
         var fields = holder.logs[i]
-        logID = getRandom();
+        logID = getRandom()
         var newtime = convertTimestamp(fields.timestamp)
         var sql =
-          'INSERT INTO public."Information" (\"logID\",\"clientID\",\"accountID\",\"eventType\",\"timestamp\") VALUES (' +
-          logID + ', ' +
+          'INSERT INTO public."Information" ("logID","clientID","accountID","eventType","timestamp") VALUES (' +
+          logID +
+          ', ' +
           JSON.stringify(fields.clientID) +
           ', ' +
           JSON.stringify(fields.accountID) +
           ', {' +
           JSON.stringify(fields.event) +
-          '}, \'' +
+          "}, '" +
           newtime +
-          '\')'
-         // console.log(sql)
+          "')"
+        // console.log(sql)
         connection.query(sql, function (error, rows, fields) {
-        if (error) console.log('An error has occured in the query')
-        else {
-          console.log('Successful query')
-        }
+          if (error) console.log('An error has occured in the query')
+          else {
+            console.log('Successful query')
+          }
         })
       }
       break
     case 'accounts':
       for (i = 0; i < holder.logs.length; i++) {
         var fields = holder.logs[i]
-        var logID = getRandom();
+        var logID = getRandom()
         var newtime = convertTimestamp(fields.timestamp)
         var sql =
-          'INSERT INTO public."Accounts" (\"logID\",\"clientID\",\"accountID\",\"accountType\",\"eventType\",\"timestamp\") VALUES (' +
-          logID + ', ' +
+          'INSERT INTO public."Accounts" ("logID","clientID","accountID","accountType","eventType","timestamp") VALUES (' +
+          logID +
+          ', ' +
           JSON.stringify(fields.clientID) +
           ', ' +
           JSON.stringify(fields.accountID) +
@@ -258,15 +266,15 @@ function addToDB () {
           JSON.stringify(fields.accountType) +
           '}, {' +
           JSON.stringify(fields.event) +
-          '}, \'' +
+          "}, '" +
           newtime +
-          '\')'
-          //console.log(sql)
+          "')"
+        // console.log(sql)
         connection.query(sql, function (error, rows, fields) {
-        if (error) console.log('An error has occured in the query')
-        else {
-          console.log('Successful query')
-        }
+          if (error) console.log('An error has occured in the query')
+          else {
+            console.log('Successful query')
+          }
         })
       }
       break
@@ -276,22 +284,23 @@ function addToDB () {
         var logID = getRandom()
         var newtime = convertTimestamp(fields.timestamp)
         var sql =
-          'INSERT INTO public."Notification" (\"logID\",\"notificationType\",\"notificationContent\",\"timestamp\",\"clientID\") VALUES (' +
-          logID + ', ' +
+          'INSERT INTO public."Notification" ("logID","notificationType","notificationContent","timestamp","clientID") VALUES (' +
+          logID +
+          ', ' +
           JSON.stringify(fields.notificationType) +
           '}, {' +
           JSON.stringify(fields.content) +
-          '}, \'' +
+          "}, '" +
           newtime +
-          '\',' +
+          "'," +
           JSON.stringify(fields.clientID) +
-          ')' 
-         // console.log(sql)
+          ')'
+        // console.log(sql)
         connection.query(sql, function (error, rows, fields) {
-        if (error) console.log('An error has occured in the query')
-        else {
-          console.log('Successful query')
-        }
+          if (error) console.log('An error has occured in the query')
+          else {
+            console.log('Successful query')
+          }
         })
       }
       break
