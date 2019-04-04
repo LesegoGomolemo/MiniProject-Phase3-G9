@@ -109,12 +109,11 @@ function getRandom(){
   return Math.floor((Math.random()*10000)+500)
 }
 
-function addToDB (data) {
-  //var holder = logSetQueue.pop()
-  var holder = data
+function addToDB () {
+  var holder = logSetQueue.pop()
+  //var holder = data
   console.log(holder.system)
   console.log('ready to insert logs....')
-  //console.log(holder.logs.length)
   var logType = holder.system
 
   switch (logType) {

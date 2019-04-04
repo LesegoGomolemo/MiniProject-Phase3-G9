@@ -40,11 +40,26 @@ async function processData (req, res) {
             })
             res.end()
           } else {
-            res.json({
-              status: 'success',
-              message: 'Logs recieved.'
-            })
-            res.end()
+            var st = JSON.stringify(data.logs[0])
+            if (
+              st.match(
+                `{"logType":"[\\w.]{2,}","cardID":\\d{2,6},"cardType":"[\\w.\\s.\\d]{2,}","clientID":\\d{2,6},"description":"[\\w.\\d.\\s]{2,}","success":[\\w.]{4,5},"timestamp":"[\\d.]{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
+              )
+            ) {
+              addToQueue(data)
+              res.json({
+                status: 'success',
+                message: 'Logs recieved.'
+              })
+              res.end()
+            } else {
+              res.json({
+                status: 'failure',
+                message:
+                  'Logs are of incorrect format. Please check the all fields, and their data.'
+              })
+              res.end()
+            }
           }
           break
         }
@@ -57,11 +72,26 @@ async function processData (req, res) {
             })
             res.end()
           } else {
-            res.json({
-              status: 'success',
-              message: 'Logs recieved.'
-            })
-            res.end()
+            var st = JSON.stringify(data.logs[0])
+            if (
+              st.match(
+                `{"atmID":\\d{2,6},"clientID":\\d{2,6},"timestamp":"\\d{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}","eventType":"[\\w.\\d.\\s]{2,}"}`
+              )
+            ) {
+              addToQueue(data)
+              res.json({
+                status: 'success',
+                message: 'Logs recieved.'
+              })
+              res.end()
+            } else {
+              res.json({
+                status: 'failure',
+                message:
+                  'Logs are of incorrect format. Please check the all fields, and their data.'
+              })
+              res.end()
+            }
           }
           break
         }
@@ -74,11 +104,26 @@ async function processData (req, res) {
             })
             res.end()
           } else {
-            res.json({
-              status: 'success',
-              message: 'Logs recieved.'
-            })
-            res.end()
+            var st = JSON.stringify(data.logs[0])
+            if (
+              st.match(
+                `{"clientID":\\d{2,6},"atmID":\\d{2,6},"duration":\\d{2,3},"success":[\\w.]{4,5},"timestamp":"\\d{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
+              )
+            ) {
+              addToQueue(data)
+              res.json({
+                status: 'success',
+                message: 'Logs recieved.'
+              })
+              res.end()
+            } else {
+              res.json({
+                status: 'failure',
+                message:
+                  'Logs are of incorrect format. Please check the all fields, and their data.'
+              })
+              res.end()
+            }
           }
           break
         }
@@ -91,11 +136,26 @@ async function processData (req, res) {
             })
             res.end()
           } else {
-            res.json({
-              status: 'success',
-              message: 'Logs recieved.'
-            })
-            res.end()
+            var st = JSON.stringify(data.logs[0])
+            if (
+              st.match(
+                `{"clientID":\\d{2,6},"atmID":\\d{2,6},"nfcType":"[\\w\\s\\d-]{2,}","success":[\\w]{4,5},"timestamp":"\\d{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
+              )
+            ) {
+              addToQueue(data)
+              res.json({
+                status: 'success',
+                message: 'Logs recieved.'
+              })
+              res.end()
+            } else {
+              res.json({
+                status: 'failure',
+                message:
+                  'Logs are of incorrect format. Please check the all fields, and their data.'
+              })
+              res.end()
+            }
           }
           break
         }
@@ -108,11 +168,26 @@ async function processData (req, res) {
             })
             res.end()
           } else {
-            res.json({
-              status: 'success',
-              message: 'Logs recieved.'
-            })
-            res.end()
+            var st = JSON.stringify(data.logs[0])
+            if (
+              st.match(
+                `{"cardID":\\d{2,6},"cardType":"[\\w]{2,}","clientID":\\d{2,6},"eventType":"[\\w]{2,}","success":[\\w]{4,5},"timestamp":"\\d{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
+              )
+            ) {
+              addToQueue(data)
+              res.json({
+                status: 'success',
+                message: 'Logs recieved.'
+              })
+              res.end()
+            } else {
+              res.json({
+                status: 'failure',
+                message:
+                  'Logs are of incorrect format. Please check the all fields, and their data.'
+              })
+              res.end()
+            }
           }
           break
         }
@@ -157,11 +232,26 @@ async function processData (req, res) {
             })
             res.end()
           } else {
-            res.json({
-              status: 'success',
-              message: 'Logs recieved.'
-            })
-            res.end()
+            var st = JSON.stringify(data.logs[0])
+            if (
+              st.match(
+                `{"clientID":\\d{2,6},"accountID":\\d{2,6},"accountType":"[\\w]{2,}","eventType":"[\\w\\s]{2,}","timestamp":"\\d{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
+              )
+            ) {
+              addToQueue(data)
+              res.json({
+                status: 'success',
+                message: 'Logs recieved.'
+              })
+              res.end()
+            } else {
+              res.json({
+                status: 'failure',
+                message:
+                  'Logs are of incorrect format. Please check the all fields, and their data.'
+              })
+              res.end()
+            }
           }
           break
         }
@@ -176,7 +266,11 @@ async function processData (req, res) {
           } else {
             // console.log(JSON.stringify(data.logs))
             var st = JSON.stringify(data.logs[0])
-            if (true) {
+            if (
+              st.match(
+                `{"clientID":\\d{2,6},"notificationType":"[\\w]{2,}","notificationContent":"[\\w\\s,.]{2,}","timestamp":"\\d{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
+              )
+            ) {
               addToQueue(data)
               res.json({
                 status: 'success',
@@ -213,7 +307,7 @@ async function processData (req, res) {
 function addToQueue (logSet) {
   logSetQueue.push(logSet)
   count++
-  dbManager.run()
+  // dbManager.run()
 }
 
 async function showHelp (req, res) {
