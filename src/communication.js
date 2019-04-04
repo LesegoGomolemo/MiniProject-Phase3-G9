@@ -43,7 +43,7 @@ async function processData (req, res) {
             var st = JSON.stringify(data.logs[0])
             if (
               st.match(
-                `{"logType":"[\\w.]{2,}","cardID":\\d{2,6},"cardType":"[\\w.\\s.\\d]{2,}","clientID":\\d{2,6},"description":"[\\w.\\d.\\s]{2,}","success":[\\w.]{4,5},"timestamp":"[\\d.]{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
+                `{"logType":"[\\w.]{2,}",""cardID":788945"":\\d{2,":"Student"6},"cardType":"[\\"w.\\s.\\d":"Password Check"]"{2,}","":falsec"lientID":":"2019-12-31 16:45:16"\\d{2,6},"description":"[\\w.\\d.\\s]{2,}","success":[\\w.]{4,5},"timestamp":"[\\d.]{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
               )
             ) {
               addToQueue(data)
@@ -56,7 +56,7 @@ async function processData (req, res) {
               res.json({
                 status: 'failure',
                 message:
-                  'Logs are of incorrect format. Please check the all fields, and their data.'
+                  'Logs are of incorrect format. Please check the all fields, and their data. Consult: http://still-oasis-34724.herokuapp.com/help'
               })
               res.end()
             }
@@ -88,7 +88,7 @@ async function processData (req, res) {
               res.json({
                 status: 'failure',
                 message:
-                  'Logs are of incorrect format. Please check the all fields, and their data.'
+                  'Logs are of incorrect format. Please check the all fields, and their data. Consult: http://still-oasis-34724.herokuapp.com/help'
               })
               res.end()
             }
@@ -120,7 +120,7 @@ async function processData (req, res) {
               res.json({
                 status: 'failure',
                 message:
-                  'Logs are of incorrect format. Please check the all fields, and their data.'
+                  'Logs are of incorrect format. Please check the all fields, and their data. Consult: http://still-oasis-34724.herokuapp.com/help'
               })
               res.end()
             }
@@ -152,7 +152,7 @@ async function processData (req, res) {
               res.json({
                 status: 'failure',
                 message:
-                  'Logs are of incorrect format. Please check the all fields, and their data.'
+                  'Logs are of incorrect format. Please check the all fields, and their data. Consult: http://still-oasis-34724.herokuapp.com/help'
               })
               res.end()
             }
@@ -184,7 +184,7 @@ async function processData (req, res) {
               res.json({
                 status: 'failure',
                 message:
-                  'Logs are of incorrect format. Please check the all fields, and their data.'
+                  'Logs are of incorrect format. Please check the all fields, and their data. Consult: http://still-oasis-34724.herokuapp.com/help'
               })
               res.end()
             }
@@ -216,7 +216,7 @@ async function processData (req, res) {
               res.json({
                 status: 'failure',
                 message:
-                  'Logs are of incorrect format. Please check the all fields, and their data.'
+                  'Logs are of incorrect format. Please check the all fields, and their data. Consult: http://still-oasis-34724.herokuapp.com/help'
               })
               res.end()
             }
@@ -248,7 +248,7 @@ async function processData (req, res) {
               res.json({
                 status: 'failure',
                 message:
-                  'Logs are of incorrect format. Please check the all fields, and their data.'
+                  'Logs are of incorrect format. Please check the all fields, and their data. Consult: http://still-oasis-34724.herokuapp.com/help'
               })
               res.end()
             }
@@ -281,7 +281,7 @@ async function processData (req, res) {
               res.json({
                 status: 'failure',
                 message:
-                  'Logs are of incorrect format. Please check the all fields, and their data.'
+                  'Logs are of incorrect format. Please check the all fields, and their data. Consult: http://still-oasis-34724.herokuapp.com/help'
               })
               res.end()
             }
@@ -312,7 +312,27 @@ function addToQueue (logSet) {
 
 async function showHelp (req, res) {
   res.writeHead(200, { 'Content-Type': 'text/plain' })
-  res.end(`\n\nQueries: u15055214@tuks.co.za`)
+  res.end(
+    `Content-Type: application/json\n\n` +
+      `Log examples: \n\n` +
+      `i.Authentication: \n` +
+      `{"logs":[{"logType":123456,"cardID":456789,"cardType":"Credit","clientID":789456,"description":"Some Text","success":true,"timestamp":"2019-12-31 16:45:16"}],\n"system":"auth"}\n\n` +
+      `ii.ATM Simulation: \n` +
+      `{"logs":[{"atmID":123456,"clientID":456789,"timestamp":"2019-12-31 16:45:16","eventType":"Event"}],\n"system":"atm"}\n\n` +
+      `iii.Facial Recognition: \n` +
+      `{"logs":[{"clientID":123456,"atmID":null,"duration":555,"success","timestamp_":"2019-12-31 16:45:16"}],\n"system":"face"}\n\n` +
+      `iv.NFC:\n` +
+      `{"logs":[{"clientID":123456,"atmID":456789,"nfcType":"Phone","success":true,"timestamp":"2019-12-31 16:45:16"}],\n"system":"nfc"}\n\n` +
+      `v.OTP:\n` +
+      `{"logs":[{"cardID":788945,"cardType":"Student","clientID":123456,"eventType":"Password Check","success":false,"timestamp":"2019-12-31 16:45:16"}],\n"system":"otp"}\n\n` +
+      `vi.Client Information:\n` +
+      `{"logs":[{"clientID":123456,"accountID":123456,"eventType":"Widrawal","timestamp":"2019-12-31 16:45:16"}],\n"system":"client"}\n\n` +
+      `vii.Client Accounts:\n` +
+      `{"logs":[{"clientID":123456,"accountID":123456,"accountType":"Credit","eventType":"Deposit","timestamp":"2019-12-31 16:45:16"}],\n"system":"accounts"}\n\n` +
+      `viii.Notification` +
+      `{"logs":[{"clientID":123456,"notificationType":"Email","notificationContent":"Funds are too low. Deposit to keep healthy balance.","timestamp":"2019-12-31 16:45:16"}],\n"system":}\n\n` +
+      `\n\nQueries: u15055214@tuks.co.za`
+  )
 }
 
 module.exports = {
