@@ -10,86 +10,89 @@ async function processData (req, res) {
   // console.log('processData /')
   // do some basic error handling
   var data = req.body
-
-  var logSet
+  // console.log('ProcessData ' + JSON.stringify(data))
 
   if (data.log_set != null) {
     // console.log('Log Set: ' + data.log_set.toString())
-    logSet = JSON.parse(data.log_set.toString())
     // validate like above
-    addToQueue(logSet)
-    res.writeHead(200, { 'Content-Type': 'text/plain' })
-    res.end(`Success: Logs have been recieved.`)
+    addToQueue(data)
+    res.json({ status: 'success' })
+    res.end()
   } else {
     // validation of data recieved
     if (data.system == null) {
       // this body is bad already
-      res.writeHead(200, { 'Content-Type': 'text/plain' })
-      res.end(`Failure: Data is not recieved.`)
+      // res.writeHead(200, { 'Content-Type': 'text/plain' })
+      // res.end(`Failure: Data is not recieved.`)
+      res.json({ status: 'failure' })
+      res.end()
     } else {
       if (data.logs == null) {
-        res.writeHead(200, { 'Content-Type': 'text/plain' })
-        res.end(`Failure: Data is not recieved.`)
+        res.json({ status: 'failure' })
+        res.end()
       } else {
         // as per subsystem, use a regex to check if the first or random five items in log array
         switch (data.system) {
           case 'auth': {
-            res.writeHead(200, { 'Content-Type': 'text/plain' })
-            res.end(`Success: Logs have been recieved.`)
+            res.json({ status: 'success' })
+            res.end()
             break
           }
 
           case 'atm': {
-            res.writeHead(200, { 'Content-Type': 'text/plain' })
-            res.end(`Success: Logs have been recieved.`)
+            res.json({ status: 'success' })
+            res.end()
             break
           }
 
           case 'face': {
-            res.writeHead(200, { 'Content-Type': 'text/plain' })
-            res.end(`Success: Logs have been recieved.`)
+            res.json({ status: 'success' })
+            res.end()
             break
           }
 
           case 'nfc': {
-            res.writeHead(200, { 'Content-Type': 'text/plain' })
-            res.end(`Success: Logs have been recieved.`)
+            res.json({ status: 'success' })
+            res.end()
             break
           }
 
           case 'otp': {
-            res.writeHead(200, { 'Content-Type': 'text/plain' })
-            res.end(`Success: Logs have been recieved.`)
+            res.json({ status: 'success' })
+            res.end()
             break
           }
 
           case 'client': {
-            res.writeHead(200, { 'Content-Type': 'text/plain' })
-            res.end(`Success: Logs have been recieved.`)
+            res.json({ status: 'failure' })
+            res.end()
             break
           }
 
           case 'accounts': {
-            res.writeHead(200, { 'Content-Type': 'text/plain' })
-            res.end(`Success: Logs have been recieved.`)
+            res.json({ status: 'success' })
+            res.end()
             break
           }
 
           case 'notif': {
-            res.writeHead(200, { 'Content-Type': 'text/plain' })
-            res.end(`Success: Logs have been recieved.`)
+            res.json({ status: 'success' })
+            res.end()
             break
           }
 
           default: {
-            res.writeHead(200, { 'Content-Type': 'text/plain' })
-            res.end(`Failure: Data is not recieved.`)
+            res.json({ status: 'failure' })
+            res.end()
             break
           }
         }
       }
     }
   }
+
+  // res.writeHead(200, { 'Content-Type': 'text/plain' })
+  // res.end(`Failure: Data is not recieved.`)
 }
 
 function addToQueue (logSet) {

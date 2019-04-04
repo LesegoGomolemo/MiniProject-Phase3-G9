@@ -17,7 +17,7 @@ communication.setQueue(logSetQueue)
 dbManager.setQueue(logSetQueue)
 
 // express server operations
-app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.post('/uploadLog', communication.processData)

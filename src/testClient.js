@@ -4,9 +4,9 @@ var http = require('http')
 
 function PostCode (logData) {
   // Build the post string from an object
-  var postData = 'null' /* querystring.stringify({
+  var postData = querystring.stringify({
     log_set: logData
-  }) */
+  })
 
   // An object of options to indicate where to post to
   // try to allow for different types of encodings to make things easier for the other group
@@ -59,8 +59,14 @@ function PostCode (logData) {
   postReq.end()
 }
 
-var logs =
-  '{ "logs": [ { "logType": "cardCreated", "logData": "stuff1" },{ "logType": "cardCreated", "logData": "stuff5" },{ "logType": "cardCancelled", "logData": "stuff9" }],"system": "audit"}'
+var logs = {
+  logs: [
+    { logType: 'cardCreated', logData: 'stuff1' },
+    { logType: 'cardCreated', logData: 'stuff5' },
+    { logType: 'cardCancelled', logData: 'stuff9' }
+  ],
+  system: 'audit'
+}
 
 PostCode(logs)
 
