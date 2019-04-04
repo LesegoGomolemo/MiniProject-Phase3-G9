@@ -15,7 +15,7 @@ const app = express()
 logSetQueue.start()
 communication.setQueue(logSetQueue)
 dbManager.setQueue(logSetQueue)
-dbManager.run()
+communication.setDBManager(dbManager)
 
 // express server operations
 // app.use(bodyParser.urlencoded({ extended: true }))
