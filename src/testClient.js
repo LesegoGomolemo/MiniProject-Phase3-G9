@@ -4,16 +4,17 @@ var http = require('http')
 
 function PostCode (logData) {
   // Build the post string from an object
-  var postData = querystring.stringify({
+  var postData = 'null' /* querystring.stringify({
     log_set: logData
-  })
+  }) */
 
   // An object of options to indicate where to post to
+  // try to allow for different types of encodings to make things easier for the other group
   var postOptions = {
-    // host: 'localhost',
-    host: 'still-oasis-34724.herokuapp.com',
-    // port: 3000,
-    port: '80',
+    host: 'localhost',
+    // host: 'still-oasis-34724.herokuapp.com',
+    port: 3000,
+    // port: '80',
     path: '/uploadLog',
     method: 'POST',
     headers: {

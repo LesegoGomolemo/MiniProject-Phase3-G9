@@ -8,34 +8,91 @@ function setQueue (queue) {
 
 async function processData (req, res) {
   // console.log('processData /')
-
+  // do some basic error handling
   var data = req.body
+
   var logSet
-  if (data.log_set.toString()) {
+
+  if (data.log_set != null) {
     // console.log('Log Set: ' + data.log_set.toString())
     logSet = JSON.parse(data.log_set.toString())
-    console.log(data.log_set.toString())
-  } else {
+    // validate like above
+    addToQueue(logSet)
     res.writeHead(200, { 'Content-Type': 'text/plain' })
-    res.end(`Data is not recieved.`)
-    //
+    res.end(`Success: Logs have been recieved.`)
+  } else {
+    // validation of data recieved
+    if (data.system == null) {
+      // this body is bad already
+      res.writeHead(200, { 'Content-Type': 'text/plain' })
+      res.end(`Failure: Data is not recieved.`)
+    } else {
+      if (data.logs == null) {
+        res.writeHead(200, { 'Content-Type': 'text/plain' })
+        res.end(`Failure: Data is not recieved.`)
+      } else {
+        // as per subsystem, use a regex to check if the first or random five items in log array
+        switch (data.system) {
+          case 'auth': {
+            res.writeHead(200, { 'Content-Type': 'text/plain' })
+            res.end(`Success: Logs have been recieved.`)
+            break
+          }
+
+          case 'atm': {
+            res.writeHead(200, { 'Content-Type': 'text/plain' })
+            res.end(`Success: Logs have been recieved.`)
+            break
+          }
+
+          case 'face': {
+            res.writeHead(200, { 'Content-Type': 'text/plain' })
+            res.end(`Success: Logs have been recieved.`)
+            break
+          }
+
+          case 'nfc': {
+            res.writeHead(200, { 'Content-Type': 'text/plain' })
+            res.end(`Success: Logs have been recieved.`)
+            break
+          }
+
+          case 'otp': {
+            res.writeHead(200, { 'Content-Type': 'text/plain' })
+            res.end(`Success: Logs have been recieved.`)
+            break
+          }
+
+          case 'client': {
+            res.writeHead(200, { 'Content-Type': 'text/plain' })
+            res.end(`Success: Logs have been recieved.`)
+            break
+          }
+
+          case 'accounts': {
+            res.writeHead(200, { 'Content-Type': 'text/plain' })
+            res.end(`Success: Logs have been recieved.`)
+            break
+          }
+
+          case 'notif': {
+            res.writeHead(200, { 'Content-Type': 'text/plain' })
+            res.end(`Success: Logs have been recieved.`)
+            break
+          }
+
+          default: {
+            res.writeHead(200, { 'Content-Type': 'text/plain' })
+            res.end(`Failure: Data is not recieved.`)
+            break
+          }
+        }
+      }
+    }
   }
-  addToQueue(logSet)
-
-  // logSet.auditLogs[0].logData : this is the stuff you add to the redis thing.
-
-  res.writeHead(200, { 'Content-Type': 'text/plain' })
-  res.end(`Success: Logs have been recieved.`)
 }
 
 function addToQueue (logSet) {
-  /* example content of logSet:
-        { "logs": [ { logType: 'cardCreated', logData: "stuff1" },
-                    { logType: 'cardCreated', logData: "stuff5" },
-                    { logType: 'cardCancelled', logData: "stuff9" }],
-          "system": "audit"
-        }
-  */
   logSetQueue.push(logSet)
 
   // console.log(logSetQueue.pop().system)
