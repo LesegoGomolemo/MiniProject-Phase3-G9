@@ -20,8 +20,8 @@
             <a class="navbar-brand" href="#">
                 <img src="media/FNBLogo.png" width="150" alt="FNB Logo" class="img">
             </a>
-            <a href="#"><i class="fa fa-home fa-2x"></i></a>
-            <a href="log.php"><i class="fa fa-list-ul fa-2x"></i></a>
+            <a class="dashboardLink"><i class="fa fa-home fa-2x"></i></a>
+            <a class="logLink"><i class="fa fa-list-ul fa-2x"></i></a>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-share-alt fa-2x"></i>
@@ -33,3 +33,20 @@
         </nav>
 
         <div class="nav-padding"></div>
+
+        <script type="text/javascript">
+        $(document).ready( function() {
+            $('.dashboardLink').click(btnDash);
+            $('.logLink').click(btnLogs);
+        });
+
+        function btnLogs() {
+            document.getElementById("dashBoard").style.display = 'none';
+            document.getElementById("logs").style.display = 'block';
+        }
+
+        function btnDash() {
+            document.getElementById("logs").style.display = 'none';
+            document.getElementById("dashBoard").style.display = 'block';
+        }
+        </script>

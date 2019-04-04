@@ -2,9 +2,9 @@
 <?php
     //QUERY FOR DAILY ACTIVITY FOR 7 DAYS
     $dataPoints1 = array();
-    $count = 7;
+    $count = 7; //7 days
     while($count > 0) {
-        $query = "SELECT to_char(\"timestamp\", 'Day') as day, COUNT(a.*) FROM (SELECT * FROM public.\"Accounts\" WHERE \"timestamp\" BETWEEN CURRENT_DATE - INTERVAL '$count days' AND CURRENT_DATE - INTERVAL '". ($count - 1) ." days') AS a GROUP BY \"timestamp\"";
+        $query = "SELECT to_char(\"timestamp\", 'Day') as day, COUNT(a.*) FROM (SELECT * FROM public.\"Simulation\" WHERE \"timestamp\" BETWEEN CURRENT_DATE - INTERVAL '$count days' AND CURRENT_DATE - INTERVAL '". ($count - 1) ." days') AS a GROUP BY \"timestamp\"";
         $result = $db->query($query);
         
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
