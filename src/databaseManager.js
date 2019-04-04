@@ -84,7 +84,7 @@ function addToDB () {
   var logType = holder.system
 
   switch (logType) {
-    case 'Authentication':
+    case 'auth':
       for (i = 0; i < holder.logs.length; i++) {
         var fields = holder.logs[i]
         var logID = getRandom();
