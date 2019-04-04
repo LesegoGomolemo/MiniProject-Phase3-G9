@@ -43,6 +43,20 @@ function test () {
   console.log('\nDatabase operation is done.')
 }
 
+function convertTimestamp(time){
+  var thisTime = time
+  var newTime = thisTime.replace(/"/g,'\'')
+  return newTime;
+}
+function cleanString(word){
+      var nfcType = word
+      var nfc = nfcType.replace(/"/g,'')
+      return nfc
+}
+function getRandom(){
+  return Math.floor((Math.random()*10000)+500)
+}
+
 function run () {
   // set a timer for now and call it every now and then
 
@@ -65,12 +79,8 @@ function run () {
 
   connection.end()
 }
-function addToDB (data) {
-  //var holder = logSetQueue.pop()
-  var holder = data
-  console.log(holder.system)
-  console.log('ready to insert logs....')
-  //console.log(holder.logs.length)
+function addToDB () {
+  var holder = logSetQueue.pop()
   var logType = holder.system
 
   switch (logType) {
@@ -276,7 +286,7 @@ function addToDB (data) {
           '\',' +
           JSON.stringify(fields.clientID) +
           ')' 
-          console.log(sql)
+         // console.log(sql)
         connection.query(sql, function (error, rows, fields) {
         if (error) console.log('An error has occured in the query')
         else {
