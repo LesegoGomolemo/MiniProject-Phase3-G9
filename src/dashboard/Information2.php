@@ -257,7 +257,7 @@
                         }
                     } else {
                         $("#test").attr("href", data_type + ", " + encodeURIComponent(tab_text));
-                        $("#test").attr("download", "NFC Table.xlsx");
+                        $("#test").attr("download", "Client Information Log Table.xlsx");
                     }
 
                 }

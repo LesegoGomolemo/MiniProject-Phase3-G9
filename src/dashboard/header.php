@@ -12,6 +12,7 @@
 		<link href="/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
         <script src="/assets/js/jquery-1.12.4.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="/assets/js/bootstrap.min.js"></script>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </head>
