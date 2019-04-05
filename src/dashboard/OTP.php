@@ -1,5 +1,9 @@
 <?php include 'header.php';?>
-	 <table align="center" style="width:80%;" class="table">
+	 <!--table, th{
+	    border: 1px solid black;
+	}-->
+    
+     <table align="center" style="width:80%;" class="table">
 			<thead>
 				<tr>
 				<td>
@@ -17,8 +21,9 @@
 				</td>
 				</tr>
 			</thead>
-		</table>
-    <form action="NFC2.php" method="post">
+		</table>  
+
+	<form action="OTP2.php" method="post">
 		<table align="center" style="width:90%;" class="table">
 			<thead>
 			  <tr>
@@ -31,13 +36,25 @@
 						<option value="1Month">1 Month</option>
 					 </select>
 				</td>
-				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert Client ID -"></td>
-				<td><input class="form-control" type="text" name="atmID" value="" placeholder="- Insert ATM ID -"></td>
+				
+				<td><input class="form-control" type="text" name="cardID" value="" placeholder="-Insert Card ID -"></td>
 				<td>
-					<select class="form-control" name="chosenNFCType">
-						<option value="NFCType">-Select NFC Type-</option>
-						<option value="Phone">Phone</option>
+					<select class="form-control" name="chosenCardType">
+						<option value="CardType">-Select Card Type-</option>
+						<option value="Student">Student</option>
 						<option value="ATM">ATM</option>
+						<option value="Cheque">Cheque</option>
+						<option value="Credit">Credit</option>
+					</select>
+				</td>
+				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert CLient ID -"></td>
+				<td>
+					<select class="form-control" name="chosenEventType">
+						<option value="EventType">-Select Event Type-</option>
+						<option value="Activation">Activation</option>
+						<option value="Deactivation">Deactivation</option>
+						<option value="Authenticated">Authenticated</option>
+						
 					</select>
 				</td>
 				<td>
@@ -51,5 +68,5 @@
 			  </tr>
 			</thead>
 		</table>
-	</form>   
+	</form>  
 <?php include 'footer.php';?>

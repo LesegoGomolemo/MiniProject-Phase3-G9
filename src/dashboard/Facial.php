@@ -1,5 +1,8 @@
 <?php include 'header.php';?>
-	 <table align="center" style="width:80%;" class="table">
+	 <!--table, th{
+	    border: 1px solid black;
+	}-->
+	<table align="center" style="width:80%;" class="table">
 			<thead>
 				<tr>
 				<td>
@@ -18,7 +21,7 @@
 				</tr>
 			</thead>
 		</table>
-    <form action="NFC2.php" method="post">
+	<form action="Facial2.php" method="post">
 		<table align="center" style="width:90%;" class="table">
 			<thead>
 			  <tr>
@@ -33,13 +36,8 @@
 				</td>
 				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert Client ID -"></td>
 				<td><input class="form-control" type="text" name="atmID" value="" placeholder="- Insert ATM ID -"></td>
-				<td>
-					<select class="form-control" name="chosenNFCType">
-						<option value="NFCType">-Select NFC Type-</option>
-						<option value="Phone">Phone</option>
-						<option value="ATM">ATM</option>
-					</select>
-				</td>
+				<td><input class="form-control" type="text" name="duration" value="" placeholder="- Insert Duration (ms) -"></td>
+				
 				<td>
 					<select class="form-control" name="isSuccess">
 						<option value="Success">-Success-</option>
@@ -51,5 +49,5 @@
 			  </tr>
 			</thead>
 		</table>
-	</form>   
+	</form>  
 <?php include 'footer.php';?>

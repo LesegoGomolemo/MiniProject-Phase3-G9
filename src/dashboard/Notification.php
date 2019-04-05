@@ -1,5 +1,5 @@
 <?php include 'header.php';?>
-	 <table align="center" style="width:80%;" class="table">
+	<table align="center" style="width:80%;" class="table">
 			<thead>
 				<tr>
 				<td>
@@ -18,10 +18,11 @@
 				</tr>
 			</thead>
 		</table>
-    <form action="NFC2.php" method="post">
+	<form action="Notification2.php" method="post">
 		<table align="center" style="width:90%;" class="table">
 			<thead>
 			  <tr>
+				
 				<td>
 					<select class="form-control" name="chosenPeriod">
 						<option value="SelectPeriod">-Select Period-</option>
@@ -32,19 +33,13 @@
 					 </select>
 				</td>
 				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert Client ID -"></td>
-				<td><input class="form-control" type="text" name="atmID" value="" placeholder="- Insert ATM ID -"></td>
+				
+				
 				<td>
-					<select class="form-control" name="chosenNFCType">
-						<option value="NFCType">-Select NFC Type-</option>
-						<option value="Phone">Phone</option>
-						<option value="ATM">ATM</option>
-					</select>
-				</td>
-				<td>
-					<select class="form-control" name="isSuccess">
-						<option value="Success">-Success-</option>
-						<option value="false">False</option>
-						<option value="true">True</option>
+					<select class="form-control" name="chosenNotificationType">
+						<option value="NotificationType">-Select Notification Type-</option>
+						<option value="SMS">SMS</option>
+						<option value="Email">Email</option>
 					</select>
 				</td>
 				<td><input class="form-control" type='submit' style="background-color:lightsteelblue"/></td>
