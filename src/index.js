@@ -15,9 +15,10 @@ const app = express()
 logSetQueue.start()
 communication.setQueue(logSetQueue)
 dbManager.setQueue(logSetQueue)
+communication.setDBManager(dbManager)
 
 // express server operations
-app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.post('/uploadLog', communication.processData)

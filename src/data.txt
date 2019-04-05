@@ -5,51 +5,51 @@
 
 //this changed so check it out on WhatsApp first
 { "logs":
-    [ { logType: 'cardCreated', logData: "stuff1" },
-      { logType: 'cardCreated', logData: "stuff5" },
-      { logType: 'cardCancelled', logData: "stuff9" }],
+    [ { "logType": "cardCreated", "logData": "stuff1" },
+      { "logType": "cardCreated", "logData": "stuff5" },
+      { "logType": "cardCancelled", "logData": "stuff9" }],
   "system": "atm"}
 
 { "logs":
-    [ { logType: 'cardCreated', cardID: '7896358962547152', cardType: 'Student Debit', clientID: 782459825789, description: 'Could contain error or success codes', success: true, timestamp: '2018-21-09:18:45:15' },
-      { logType: 'cardCreated', cardID: '7896358962547152', cardType: 'Student Credit', clientID: 782459825789, description: 'Could contain error or success codes', success: true, timestamp: '2018-21-09:18:45:15' },
-      { logType: 'cardCreated', cardID: '7896358962547152', cardType: 'Student Debit', clientID: 782459825789, description: 'Could contain error or success codes', success: true, timestamp: '2018-21-09:18:45:15' }],
+    [ { "logType": "cardCreated", "cardID": 7896358962547152, "cardType": "Student Debit", "clientID": 782459825789, "description": "Could contain error or success codes", "success": true, "timestamp": "2018-21-09 18:45:15" },
+      { "logType": "cardCreated", "cardID": 7896358962547152, "cardType": "Student Credit", "clientID": 782459825789, "description": "Could contain error or success codes", "success": true, "timestamp": "2018-21-09 18:45:15" },
+      { "logType": "cardCreated", "cardID": 7896358962547152, "cardType": "Student Debit", "clientID": 782459825789, "description": "Could contain error or success codes", "success": true, "timestamp": "2018-21-09 18:45:15" }],
   "system": "auth"}
 
 { "logs":
-    [ { clientID: 782459825789, atmID: 556824854812, duration: 554188, success: false, timestamp: '2018-21-09:18:45:15' },
-      { clientID: 782459825789, atmID: 556824854812, duration: 554188, success: false, timestamp: '2018-21-09:18:45:15' },
-      { clientID: 782459825789, atmID: 556824854812, duration: 554188, success: false, timestamp: '2018-21-09:18:45:15' }],
+    [ { "clientID": 782459825789, "atmID": 556824854812, "duration": 554188, "success": false, "timestamp": "2018-21-09 18:45:15" },
+      { "clientID": 782459825789, "atmID": 556824854812, "duration": 554188, "success": false, "timestamp": "2018-21-09 18:45:15" },
+      { "clientID": 782459825789, "atmID": 556824854812, "duration": 554188, "success": false, "timestamp": "2018-21-09 18:45:15" }],
   "system": "face"}
 
 { "logs":
-    [ { clientID: 782459825789, atmID: 556824854812, nfcType: 'S8-NFC', success: true, timestamp: '2018-21-09:18:45:15' },
-      { clientID: 782459825789, atmID: 556824854812, nfcType: 'S8-NFC', success: true, timestamp: '2018-21-09:18:45:15' },
-      { clientID: 782459825789, atmID: 556824854812, nfcType: 'S8-NFC', success: true, timestamp: '2018-21-09:18:45:15' }],
+    [ { "clientID": 782459825789, atmID: 556824854812, nfcType: 'S8-NFC', success: true, timestamp: '2018-21-09:18:45:15' },
+      { "clientID": 782459825789, atmID: 556824854812, nfcType: 'S8-NFC', success: true, timestamp: '2018-21-09:18:45:15' },
+      { "clientID": 782459825789, atmID: 556824854812, nfcType: 'S8-NFC', success: true, timestamp: '2018-21-09:18:45:15' }],
   "system": "nfc"}
 
 { "logs":
-    [ { clientID: 782459825789, pin: 'auy7', timestamp: '2018-21-09:18:45:15' },
-      { clientID: 782459825789, pin: 'auy7', timestamp: '2018-21-09:18:45:15' },
-      { clientID: 782459825789, pin: 'auy7', timestamp: '2018-21-09:18:45:15' }],
+    [ { "clientID": 782459825789, pin: 'auy7', timestamp: '2018-21-09:18:45:15' },
+      { "clientID": 782459825789, pin: 'auy7', timestamp: '2018-21-09:18:45:15' },
+      { "clientID": 782459825789, pin: 'auy7', timestamp: '2018-21-09:18:45:15' }],
   "system": "otp"}
 
 { "logs":
-    [ { clientID: 782459825789, accountID: 88556974158, eventDescription: 'Changed Password', timestamp: '2018-21-09:18:45:15' },
-      { clientID: 782459825789, accountID: 88556974158, eventDescription: 'Changed Password', timestamp: '2018-21-09:18:45:15' },
-      { clientID: 782459825789, accountID: 88556974158, eventDescription: 'Changed Password', timestamp: '2018-21-09:18:45:15' }],
+    [ { "clientID": 782459825789, accountID: 88556974158, eventType: 'Changed Password', timestamp: '2018-21-09:18:45:15' },
+      { "clientID": 782459825789, accountID: 88556974158, eventType: 'Changed Password', timestamp: '2018-21-09:18:45:15' },
+      { "clientID": 782459825789, accountID: 88556974158, eventType: 'Changed Password', timestamp: '2018-21-09:18:45:15' }],
   "system": "client"}
 
 { "logs":
-    [ { clientID: 782459825789, accountID: 88556974158, accountType: 'Student Cheque', eventDescription: 'Created Account', timestamp: '2018-21-09:18:45:15'},
-      { clientID: 782459825789, accountID: 88556974158, accountType: 'Platinum', eventDescription: 'Created Account', timestamp: '2018-21-09:18:45:15'},
-      { clientID: 782459825789, accountID: 88556974158, accountType: 'Gold', eventDescription: 'Created Account', timestamp: '2018-21-09:18:45:15'}],
+    [ { "clientID": 782459825789, accountID: 88556974158, accountType: 'Student Cheque', eventType: 'Created Account', timestamp: '2018-21-09:18:45:15'},
+      { "clientID": 782459825789, accountID: 88556974158, accountType: 'Platinum', eventType: 'Created Account', timestamp: '2018-21-09:18:45:15'},
+      { "clientID": 782459825789, accountID: 88556974158, accountType: 'Gold', eventType: 'Created Account', timestamp: '2018-21-09:18:45:15'}],
   "system": "accounts"}
 
 { "logs":
-    [ { clientID: 782459825789, notificationType: 'Email', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat tincidunt ex id mattis. Vivamus dictum.', timestamp: '2018-21-09:18:45:15' },
-      { clientID: 782459825789, notificationType: 'Email', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat tincidunt ex id mattis. Vivamus dictum.', timestamp: '2018-21-09:18:45:15' },
-      { clientID: 782459825789, notificationType: 'Email', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat tincidunt ex id mattis. Vivamus dictum.', timestamp: '2018-21-09:18:45:15' }],
+    [ { "clientID": 782459825789, notificationType: 'Email', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat tincidunt ex id mattis. Vivamus dictum.', timestamp: '2018-21-09:18:45:15' },
+      { "clientID": 782459825789, notificationType: 'Email', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat tincidunt ex id mattis. Vivamus dictum.', timestamp: '2018-21-09:18:45:15' },
+      { "clientID": 782459825789, notificationType: 'Email', content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque feugiat tincidunt ex id mattis. Vivamus dictum.', timestamp: '2018-21-09:18:45:15' }],
   "system": "notif"}  
   
   run {

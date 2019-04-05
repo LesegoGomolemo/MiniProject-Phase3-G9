@@ -109,17 +109,18 @@ function getRandom(){
   return Math.floor((Math.random()*10000)+500)
 }
 
-function addToDB () {
-  var holder = logSetQueue.pop()
+function addToDB (data) {
+  //var holder = logSetQueue.pop()
+  var holder = data
   console.log(holder.system)
   console.log('ready to insert logs....')
+  //console.log(holder.logs.length)
   var logType = holder.system
 
   switch (logType) {
-    case 'auth':
+    case 'Authentication':
       for (i = 0; i < holder.logs.length; i++) {
         var fields = holder.logs[i]
-
         var logID = getRandom();
         var sql =
           'INSERT INTO public."Authentication"' + ' (\"logID\",\"logType\",\"cardID\",\"cardType\",\"clientID\",\"description\",\"success\",\"timestamp\") VALUES (' +
@@ -148,20 +149,23 @@ function addToDB () {
       for (i = 0; i < holder.logs.length; i++) {
         var fields = holder.logs[i]
         var logID = getRandom()
-        var eventType = cleanString(JSON.stringify(fields.eventType))
         var newtime = convertTimestamp(fields.timestamp)
         var sql =
-          'INSERT INTO public."Simulation" (\"logID\",\"atmID\",\"clientID\",\"timestamp\",\"eventType\") VALUES (' +
+          'INSERT INTO public."Simulation" (\"logID\",\"atmID\",\"clientID\",\"eventType\",\"eventDescription\",\"extraDetail\",\"timestamp\") VALUES (' +
           logID + ', '+
           JSON.stringify(fields.atmID) +
           ', ' +
           JSON.stringify(fields.clientID) +
-          ', \'' +
+          ', {' +
+          JSON.stringify(fields.eventType) +
+          '}, {' +
+          JSON.stringify(fields.eventDescription) +
+          '}, {' +
+          JSON.stringify(fields.extraDetail) +
+          '}, \'' +
           newtime +
-          '\', \'{' +
-          eventType +
-          '}\')'
-         //console.log(sql)
+          '\')'
+         // console.log(sql)
       connection.query(sql, function (err, result) {
           if (err) throw err
           console.log('record successfully inserted')
@@ -172,7 +176,6 @@ function addToDB () {
       for (i = 0; i < holder.logs.length; i++) {
         var fields = holder.logs[i]
         var logID = getRandom();
-        var duration = getRandom()- 400;
         var newtime = convertTimestamp(fields.timestamp)
         var sql =
           'INSERT INTO public."Facial" (\"logID\",\"clientID\",\"atmID\",\"duration\",\"success\",\"timestamp\") VALUES (' +
@@ -181,13 +184,13 @@ function addToDB () {
           ', ' +
           JSON.stringify(fields.atmID) +
           ', ' +
-          duration +
+          JSON.stringify(fields.duration) +
           ', ' +
           JSON.stringify(fields.success) +
           ', \'' +
           newtime +
           '\')'
-         //console.log(sql)
+         // console.log(sql)
        connection.query(sql, function (err, result) {
           if (err) throw err
           console.log('record successfully inserted')
@@ -200,6 +203,8 @@ function addToDB () {
         var fields = holder.logs[i]
         var logID = getRandom();
         var newtime = convertTimestamp(fields.timestamp)
+        /*var nfcType = JSON.stringify(fields.nfcType)
+        var nfc = nfcType.replace(/"/g,'')*/
         var nfc = cleanString(JSON.stringify(fields.nfcType))
         var sql =
           'INSERT INTO public."NFC" (\"logID\",\"clientID\",\"atmID\",\"nfcType\",success,\"timestamp\") VALUES (' +
@@ -214,7 +219,7 @@ function addToDB () {
           ', \'' +
           newtime +
           '\')'
-        // console.log(sql)
+         console.log(sql)
       connection.query(sql, function (error, rows, fields) {
         if (error) console.log('An error has occured in the query')
         else {
@@ -251,7 +256,8 @@ function addToDB () {
     case 'client':
       for (i = 0; i < holder.logs.length; i++) {
         var fields = holder.logs[i]
-        logID = getRandom();
+        var eventType = cleanString(JSON.stringify(fields.eventType))
+        var logID = getRandom();
         var newtime = convertTimestamp(fields.timestamp)
         var sql =
           'INSERT INTO public."Information" (\"logID\",\"clientID\",\"accountID\",\"eventType\",\"timestamp\") VALUES (' +
@@ -259,12 +265,12 @@ function addToDB () {
           JSON.stringify(fields.clientID) +
           ', ' +
           JSON.stringify(fields.accountID) +
-          ', \'{' +
+          ', {' +
           eventType +
-          '}\', \'' +
+          '}, \'' +
           newtime +
           '\')'
-         //console.log(sql)
+         // console.log(sql)
         connection.query(sql, function (error, rows, fields) {
         if (error) console.log('An error has occured in the query')
         else {
@@ -286,11 +292,11 @@ function addToDB () {
           JSON.stringify(fields.clientID) +
           ', ' +
           JSON.stringify(fields.accountID) +
-          ', \'{' +
-          accountType +
-          '}\', \'{' +
+          ', {' +
+          accountType+
+          '}, {' +
           eventType +
-          '}\', \'' +
+          '}, \'' +
           newtime +
           '\')'
           //console.log(sql)
@@ -320,7 +326,7 @@ function addToDB () {
           '\',' +
           JSON.stringify(fields.clientID) +
           ')' 
-         // console.log(sql)
+          console.log(sql)
         connection.query(sql, function (error, rows, fields) {
         if (error) console.log('An error has occured in the query')
         else {
@@ -338,3 +344,6 @@ module.exports = {
   run,
   addToDB
 }
+
+//test();
+//run();

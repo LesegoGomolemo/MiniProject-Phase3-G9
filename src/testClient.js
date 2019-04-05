@@ -9,9 +9,12 @@ function PostCode (logData) {
   })
 
   // An object of options to indicate where to post to
+  // try to allow for different types of encodings to make things easier for the other group
   var postOptions = {
-    host: 'still-oasis-34724.herokuapp.com',
-    port: '80',
+    host: 'localhost',
+    // host: 'still-oasis-34724.herokuapp.com',
+    port: 3000,
+    // port: '80',
     path: '/uploadLog',
     method: 'POST',
     headers: {
@@ -56,8 +59,14 @@ function PostCode (logData) {
   postReq.end()
 }
 
-var logs =
-  '{ "logs": [ { "logType": "cardCreated", "logData": "stuff1" },{ "logType": "cardCreated", "logData": "stuff5" },{ "logType": "cardCancelled", "logData": "stuff9" }],"system": "audit"}'
+var logs = {
+  logs: [
+    { logType: 'cardCreated', logData: 'stuff1' },
+    { logType: 'cardCreated', logData: 'stuff5' },
+    { logType: 'cardCancelled', logData: 'stuff9' }
+  ],
+  system: 'audit'
+}
 
 PostCode(logs)
 
