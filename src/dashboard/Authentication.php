@@ -2,7 +2,8 @@
 	 <!--table, th{
 	    border: 1px solid black;
 	}-->
-	<table align="center" style="width:80%;" class="table">
+    
+     <table align="center" style="width:80%;" class="table">
 			<thead>
 				<tr>
 				<td>
@@ -21,13 +22,15 @@
 				</td>
 				</tr>
 			</thead>
-		</table>
+		</table> 
+		
 		<br>
 	<br>
-	 <h1 align="center" class="font-weight-bold">FACIAL RECOGNITION LOG</h1> 
+	 <h1 align="center" class="font-weight-bold">AUTHENTICATION LOG</h1> 
 	 <br>
 	 <br>
-	<form action="Facial2.php" method="post">
+
+	<form action="Authentication2.php" method="post">
 		<table align="center" style="width:90%;" class="table">
 			<thead>
 			  <tr>
@@ -40,9 +43,18 @@
 						<option value="1Month">1 Month</option>
 					 </select>
 				</td>
-				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert Client ID -"></td>
-				<td><input class="form-control" type="text" name="atmID" value="" placeholder="- Insert ATM ID -"></td>
-				<td><input class="form-control" type="text" name="duration" value="" placeholder="- Insert Duration (ms) -"></td>
+				
+				<td><input class="form-control" type="text" name="cardID" value="" placeholder="-Insert Card ID -"></td>
+				<td>
+					<select class="form-control" name="chosenCardType">
+						<option value="CardType">-Select Card Type-</option>
+						<option value="Student">Student</option>
+						<option value="ATM">ATM</option>
+						<option value="Cheque">Cheque</option>
+						<option value="Credit">Credit</option>
+					</select>
+				</td>
+				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert CLient ID -"></td>
 				
 				<td>
 					<select class="form-control" name="isSuccess">

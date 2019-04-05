@@ -2,8 +2,8 @@
 	 <!--table, th{
 	    border: 1px solid black;
 	}-->
-	 
-	<table align="center" style="width:80%;" class="table">
+    
+     <table align="center" style="width:80%;" class="table">
 			<thead>
 				<tr>
 				<td>
@@ -22,13 +22,15 @@
 				</td>
 				</tr>
 			</thead>
-		</table>
+		</table> 
+		
 		<br>
 	<br>
-	 <h1 align="center" class="font-weight-bold">FACIAL RECOGNITION LOG</h1> 
+	 <h1 align="center" class="font-weight-bold">AUTHENTICATION LOG</h1> 
 	 <br>
 	 <br>
-	<form action="Facial2.php" method="post">
+
+	<form action="Authentication2.php" method="post">
 		<table align="center" style="width:90%;" class="table">
 			<thead>
 			  <tr>
@@ -41,9 +43,18 @@
 						<option value="1Month">1 Month</option>
 					 </select>
 				</td>
-				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert Client ID -"></td>
-				<td><input class="form-control" type="text" name="atmID" value="" placeholder="- Insert ATM ID -"></td>
-				<td><input class="form-control" type="text" name="duration" value="" placeholder="- Insert Duration (ms) -"></td>
+				
+				<td><input class="form-control" type="text" name="cardID" value="" placeholder="-Insert Card ID -"></td>
+				<td>
+					<select class="form-control" name="chosenCardType">
+						<option value="CardType">-Select Card Type-</option>
+						<option value="Student">Student</option>
+						<option value="ATM">ATM</option>
+						<option value="Cheque">Cheque</option>
+						<option value="Credit">Credit</option>
+					</select>
+				</td>
+				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert CLient ID -"></td>
 				
 				<td>
 					<select class="form-control" name="isSuccess">
@@ -56,9 +67,13 @@
 			  </tr>
 			</thead>
 		</table>
-	</form>    
-	
-	<?php include 'DBConnect.php'; ?>
+	</form>  
+
+		</div>
+	<br/>
+
+
+<?php include 'DBConnect.php'; ?>
 <?php
 	/*$db = new mysqli("localhost", "root","","logsdb");
 		
@@ -76,9 +91,10 @@
 		}
 	
 	$period = getOption($_POST["chosenPeriod"]);
+	$cardID = (int)$_POST["cardID"];
+	$cardType = getOption($_POST["chosenCardType"]);
 	$clientID = (int)$_POST["clientID"];
-	$atmID = (int)$_POST["atmID"];
-	$duration = (int)$_POST["duration"];
+	
 	$success = getOption($_POST["isSuccess"]);
 	
 	
@@ -89,9 +105,9 @@
 	//session_start();
 	//$table = $_SESSION['table1'];
 	
-	$sql = "SELECT * FROM public.\"Facial\"";
+	$sql = "SELECT * FROM public.\"Authentication\"";
 
-	if($period == "SelectPeriod" && $clientID == "" && $atmID == "" && $duration == "" && $success == "Success")
+	if($period == "SelectPeriod" && $cardID == "" && $cardType == "CardType" && $clientID == "" && $success == "Success")
 	{
 	
 	}
@@ -119,39 +135,39 @@
 				break;
 		}
 
-		if($clientID ) 
-		$sql .= " AND \"clientID\" = ".$clientID;
-		if($atmID)
-	 		$sql .= " AND \"atmID\" = ".$atmID; 
-		if($duration)
-			$sql .= " AND \"duration\" = '{".$duration."}'";
+		if($cardID) 
+			$sql .= " AND \"cardID\" = ".$cardID;
+		if($cardType =! "CardType")
+			$sql .= " AND \"cardType\" = '{".$cardType."}'";
+		if($clientID) 
+			$sql .= " AND \"clientID\" = ".$clientID;
 		if($success && $success != "Success")
-			$sql .= " AND success = '".$success."'";
+			$sql .= " AND success = ".$success;
 
 	}
-	else if($clientID )
+	else if($cardID) 
+	{
+		$sql .= " \"cardID\" = ".$cardID;
+		if($cardType =! "CardType")
+			$sql .= " AND \"cardType\" = '{".$cardType."}'";
+		if($clientID) 
+			$sql .= " AND \"clientID\" = ".$clientID;
+		if($success && $success != "Success")
+			$sql .= " AND success = ".$success;
+	}
+	else if($cardType && $cardType != "CardType")
+	{
+		$sql .= " \"cardType\" = '{".$cardType."}'";
+		if($clientID) 
+			$sql .= " AND \"clientID\" = ".$clientID;
+		if($success && $success != "Success")
+			$sql .= " AND success = ".$success;
+	}
+	else if($clientID) 
 	{
 		$sql .= " \"clientID\" = ".$clientID;
-		if($atmID)
-	 		$sql .= " AND \"atmID\" = ".$atmID; 
-		if($duration)
-			$sql .= " AND \"duration\" = '{".$duration."}'";
 		if($success && $success != "Success")
-			$sql .= " AND success = '".$success."'";
-	}
-	else if($atmID)
-	{
-		$sql .= " \"atmID\" = ".$atmID; 
-		if($duration)
-			$sql .= " AND \"duration\" = '{".$duration."}'";
-		if($success && $success != "Success")
-			$sql .= " AND success = '".$success."'";
-	}
-	else if($duration)
-	{
-		$sql .= " \"duration\" = ".$duration;
-		if($success && $success != "Success")
-			$sql .= " AND success = '".$success."'";
+			$sql .= " AND success = ".$success;
 	}
 	else if($success && $success != "Success")
 	{
@@ -159,27 +175,28 @@
 	}
 
 	$sql .= " ORDER BY \"logID\" ASC";
-	
+
 	$result = $db->query($sql);
                 
-             /*   echo "<a href=\"#\" id=\"nfc\" onClick=\"fnExcelReport()\">download</a>";
+                /*echo "<a href=\"#\" id=\"nfc\" onClick=\"fnExcelReport()\">download</a>";
                 echo "<br/>";
 
 				
 
                 echo "<table align:\"center\" name:\"nfcTable\" id:\"nfcTable\">";
 				echo "<thead>
-						<tr><th>Log ID</th><th>Client ID</th><th>ATM ID</th><th>Duration</th><th>Success?</th><th>Timestamp</th></tr>
+						<tr><th>Log ID</th><th>Card ID</th><th>Card Type</th><th>Client ID</th><th>Description</th><th>Success?</th><th>Timestamp</th></tr>
 					</thead>";
                 echo "<tbody style=\"height:200px; overflow:scroll\">";
 				echo "<div>";
 				*/
-
 ?>
                 <!--
 				<a href="#" id="nfc" onClick="fnExcelReport()">download</a>
 				-->
-               <br>
+                <br/>
+
+				<br>
 				<table align="center" style="width:30%;" class="table">
 					<thead>
 						<tr>
@@ -192,23 +209,23 @@
 				</table>
 				<br>
 				<br>
-
 				
 
                 <table  align="center" style="width:80%;" class="table table-sm table-bordered table-condensed " name="logTable" id="logTable" >
 					<thead class="thead-light">
 						<tr>
 							<th scope="col">Log ID</th>
+							<th scope="col">Card ID</th>
+							<th scope="col">Card Type</th>
 							<th scope="col">Client ID</th>
-							<th scope="col">ATM ID</th>
-							<th scope="col">Duration</th>
+							<th scope="col">Description</th>
 							<th scope="col">Success?</th>
 							<th scope="col">Timestamp</th>
 						</tr>
 					</thead>
 					<tbody>
 				
-<?php
+<?php				
 
 				
 		if($result->rowCount() > 0) 
@@ -232,16 +249,17 @@
 		}
 		else
 		{
-			echo "<tr><td colspan=\"6\">0 Results Found</td></tr>";
+			echo "<tr><td colspan=\"7\">0 Results Found</td></tr>";
 		}
 
 		echo "</div>";
 		echo "</tbody>";
 		echo "</table>";
 		
- 
+        
+                
 ?>
-<script>
+        <script>
                 function fnExcelReport() {
 
                     
@@ -272,9 +290,10 @@
                         }
                     } else {
                         $("#test").attr("href", data_type + ", " + encodeURIComponent(tab_text));
-                        $("#test").attr("download", "Facial Recognition Logs Table.xls");
+                        $("#test").attr("download", "Authentication Log Table.xls");
                     }
 
                 }
             </script> 
+
 <?php include 'footer.php';?>
