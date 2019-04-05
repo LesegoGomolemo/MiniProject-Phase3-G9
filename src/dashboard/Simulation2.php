@@ -13,11 +13,17 @@
 						<option value="Simulation.php">Simulation</option>
 						<option value="Facial.php">Facial Recognition</option>
 						<option value="Information.php">Client Information</option>
+						<option value="Authentication.php">Authentication</option>
 					 </select>
 				</td>
 				</tr>
 			</thead>
 		</table>
+		<br>
+	<br>
+	 <h1 align="center" class="font-weight-bold">ATM SIMULATION LOG</h1> 
+	 <br>
+	 <br>
 	<form action="Simulation2.php" method="post">
 		<table align="center" style="width:80%;" class="table">
 			<thead>
@@ -142,11 +148,21 @@
                 <!--
 				<a href="#" id="nfc" onClick="fnExcelReport()">download</a>
 				-->
-                <br/>
+                <br>
+				<table align="center" style="width:30%;" class="table">
+					<thead>
+						<tr>
+						<!--<td>
+							<a href="#" id="test" class="btn btn-info" onClick="fnExcelReport()" role="button">Download Excel</a>
+						</td>-->
+						<td><a href="#" id="test"  onClick="fnExcelReport()"><input class="form-control" type='submit' style="background-color:lightsteelblue" value="Download Excel"/></a></td>
+						</tr>
+					</thead>
+				</table>
+				<br>
+				<br>
 
-				
-
-               <table  align="center" style="width:80%;" class="table table-sm table-bordered table-condensed "  >
+               <table  align="center" style="width:80%;" class="table table-sm table-bordered table-condensed " name="logTable" id="logTable" >
 					<thead class="thead-light">
 						<tr>
 							<th scope="col">Log ID</th>
@@ -193,7 +209,7 @@
         <script>
                 function fnExcelReport() {
 
-                    windows.alert("just");
+                    
 
                     var tab_text = "<html xmlns:x=\"urn:schemas-microsoft-com:office:excel\">";
                     tab_text = tab_text + "<head><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>";
@@ -204,7 +220,7 @@
                     tab_text = tab_text + "</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>";
 
                     tab_text = tab_text + "<table border=\"1px\">";
-                    tab_text = tab_text + $("#nfcTable").html();
+                    tab_text = tab_text + $("#logTable").html();
                     tab_text = tab_text + "</table></body></html>";
 
                     var data_type = "data:application/vnd.ms-excel";
@@ -217,11 +233,11 @@
                             var blob = new Blob([tab_text], {
                                 type: "application/csv;charset=utf-8;"
                             });
-                            navigator.msSaveBlob(blob, "NFC Table.xlsx");
+                            navigator.msSaveBlob(blob, "ATM Simulation Table.xls");
                         }
                     } else {
                         $("#test").attr("href", data_type + ", " + encodeURIComponent(tab_text));
-                        $("#test").attr("download", "NFC Table.xlsx");
+                        $("#test").attr("download", "ATM Simulation Table.xls");
                     }
 
                 }

@@ -13,11 +13,17 @@
 						<option value="Simulation.php">Simulation</option>
 						<option value="Facial.php">Facial Recognition</option>
 						<option value="Information.php">Client Information</option>
+						<option value="Authentication.php">Authentication</option>
 					 </select>
 				</td>
 				</tr>
 			</thead>
 		</table>
+		<br>
+	<br>
+	 <h1 align="center" class="font-weight-bold">ATM SIMULATION LOG</h1> 
+	 <br>
+	 <br>
 	<form action="Simulation2.php" method="post">
 		<table align="center" style="width:80%;" class="table">
 			<thead>

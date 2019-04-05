@@ -27,6 +27,7 @@
 						<option value="Simulation.php">Simulation</option>
 						<option value="Facial.php">Facial Recognition</option>
 						<option value="Information.php">Client Information</option>
+						<option value="Authentication.php">Authentication</option>
 					 </select>
 				</td>
 				</tr>

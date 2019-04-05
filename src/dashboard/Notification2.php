@@ -224,7 +224,7 @@
                     tab_text = tab_text + "</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>";
 
                     tab_text = tab_text + "<table border=\"1px\">";
-                    tab_text = tab_text + $("#nfcTable").html();
+                    tab_text = tab_text + $("#logTable").html();
                     tab_text = tab_text + "</table></body></html>";
 
                     var data_type = "data:application/vnd.ms-excel";
