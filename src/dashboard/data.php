@@ -12,6 +12,7 @@
         }
         $count--;
     }
+    array_pop($dataPoints1);
 
     //QUERY FOR NUMBER OF EACH ACCOUNT TYPE
     $query = "SELECT \"accountType\", COUNT(*) as count FROM public.\"Accounts\" GROUP BY \"accountType\" ORDER BY count DESC";
@@ -35,6 +36,8 @@
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         $dataPoints3[] = array("y" => $row["count"], "label" => substr($row["success"], 1 - strlen($row["success"]), strlen($row["success"]) - 2));
     }   
+    $dataPoints3[0]["label"] = "success";
+    $dataPoints3[1]["label"] = "failed";
 
 
     //QUERY FOR POPULAR ACTIONS PERFORMED

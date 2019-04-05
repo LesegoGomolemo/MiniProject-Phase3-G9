@@ -40,7 +40,7 @@ $(function () {
             theme: "light1",
             animationEnabled: true,
             title: {
-                text: "Daily activity for the past 7 days"
+                text: "Daily users for the past 7 days"
             },
             exportEnabled: true,
             data: [
@@ -58,7 +58,7 @@ $(function () {
             theme: "light1",
             animationEnabled: true,
             title: {
-                text: "Number of each account type"
+                text: "Account type distribution"
             },
             exportEnabled: true,
             data: [
@@ -81,7 +81,8 @@ $(function () {
             exportEnabled: true,
             data: [
             {
-                type: "doughnut",                
+                type: "doughnut",    
+                indexLabel: "{y} {label}",            
                 dataPoints: <?php echo json_encode($dataPoints3, JSON_NUMERIC_CHECK); ?>
             }
             ]
@@ -130,7 +131,7 @@ $(function () {
             theme: "light1",
             animationEnabled: true,
             title: {
-                text: "Loging system activities"
+                text: "Logging system activities"
             },
             exportEnabled: true,
             data: [
@@ -149,7 +150,7 @@ $(function () {
             theme: "light1",
             animationEnabled: true,
             title: {
-                text: "Loging system activities"
+                text: "Logging system activities"
             },
             exportEnabled: true,
             data: [
