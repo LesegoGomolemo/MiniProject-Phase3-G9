@@ -49,9 +49,18 @@
   overflow: hidden;
 }
 
+.div-big-holder {
+  margin: 0 auto;
+  width: 85vw;
+  height: 52vh;
+  padding: 2vh 1vw 2vh 1vw;
+  overflow: hidden;
+}
+
+
 .div-sml {
   margin: 0 auto;
-  width: 25vw;
+  width: 27vw;
   height: 50vh;
   padding: 2vh 1vw 2vh 1vw;
 }
