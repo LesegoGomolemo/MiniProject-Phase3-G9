@@ -240,7 +240,7 @@
                     tab_text = tab_text + "</x:ExcelWorksheets></x:ExcelWorkbook></xml></head><body>";
 
                     tab_text = tab_text + "<table border=\"1px\">";
-                    tab_text = tab_text + $("#nfcTable").html();
+                    tab_text = tab_text + $("#logTable").html();
                     tab_text = tab_text + "</table></body></html>";
 
                     var data_type = "data:application/vnd.ms-excel";
@@ -253,11 +253,11 @@
                             var blob = new Blob([tab_text], {
                                 type: "application/csv;charset=utf-8;"
                             });
-                            navigator.msSaveBlob(blob, "NFC Table.xlsx");
+                            navigator.msSaveBlob(blob, "Client Information Table.xls");
                         }
                     } else {
                         $("#test").attr("href", data_type + ", " + encodeURIComponent(tab_text));
-                        $("#test").attr("download", "NFC Table.xlsx");
+                        $("#test").attr("download", "Client Information Table.xls");
                     }
 
                 }
