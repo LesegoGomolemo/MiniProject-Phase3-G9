@@ -112,7 +112,7 @@ $(function () {
             theme: "light1",
             animationEnabled: true,
             title: {
-                text: "# Notifications sent"
+                text: "Number notifications sent"
             },
             exportEnabled: true,
             data: [
