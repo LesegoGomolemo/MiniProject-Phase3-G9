@@ -106,7 +106,7 @@ async function processData (req, res) {
             var st = JSON.stringify(data.logs[0])
             if (
               st.match(
-                `{"clientID":\\d{2,6},"atmID":"null","duration":\\d{2,3},"success":[\\w.]{4,5},"timestamp_":"\\d{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
+                `{"clientID":\\d{2,6},"atmID":\\d{2,6},"duration":\\d{2,3},"success":[\\w.]{4,5},"timestamp":"\\d{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
               )
             ) {
               addToQueue(data)
@@ -202,7 +202,7 @@ async function processData (req, res) {
             var st = JSON.stringify(data.logs[0])
             if (
               st.match(
-                `{"clientID":\\d{2,6},"accountID":\\d{2,6},"eventType":"[\\w.\\d.\\s]{2,}","timestamp":"[\\w-:\\d.]{4,}"}`
+                `{"clientID":\\d{2,6},"accountID":\\d{2,6},"eventType":"[\\w.\\d.\\s]{2,}","timestamp":"[\\w-:\\d\\s.]{4,}"}`
               )
             ) {
               addToQueue(data)
