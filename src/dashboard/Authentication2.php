@@ -1,8 +1,9 @@
-
-    <?php include 'header.php'; ?>
-    <!-- style="position:fixed"-->   
-	<div>
-	<table align="center" style="width:80%;" class="table">
+<?php include 'header.php';?>
+	 <!--table, th{
+	    border: 1px solid black;
+	}-->
+    
+     <table align="center" style="width:80%;" class="table">
 			<thead>
 				<tr>
 				<td>
@@ -25,11 +26,11 @@
 		
 		<br>
 	<br>
-	 <h1 align="center" class="font-weight-bold">OTP LOG</h1> 
+	 <h1 align="center" class="font-weight-bold">AUTHENTICATION LOG</h1> 
 	 <br>
 	 <br>
 
-	<form action="OTP2.php" method="post">
+	<form action="Authentication2.php" method="post">
 		<table align="center" style="width:90%;" class="table">
 			<thead>
 			  <tr>
@@ -54,15 +55,7 @@
 					</select>
 				</td>
 				<td><input class="form-control" type="text" name="clientID" value="" placeholder="- Insert CLient ID -"></td>
-				<td>
-					<select class="form-control" name="chosenEventType">
-						<option value="EventType">-Select Event Type-</option>
-						<option value="Activation">Activation</option>
-						<option value="Deactivation">Deactivation</option>
-						<option value="Authenticated">Authenticated</option>
-						
-					</select>
-				</td>
+				
 				<td>
 					<select class="form-control" name="isSuccess">
 						<option value="Success">-Success-</option>
@@ -74,8 +67,9 @@
 			  </tr>
 			</thead>
 		</table>
-	</form>     
-	</div>
+	</form>  
+
+		</div>
 	<br/>
 
 
@@ -100,7 +94,7 @@
 	$cardID = (int)$_POST["cardID"];
 	$cardType = getOption($_POST["chosenCardType"]);
 	$clientID = (int)$_POST["clientID"];
-	$eventType = getOption($_POST["chosenEventType"]);
+	
 	$success = getOption($_POST["isSuccess"]);
 	
 	
@@ -111,9 +105,9 @@
 	//session_start();
 	//$table = $_SESSION['table1'];
 	
-	$sql = "SELECT * FROM public.\"OTP\"";
+	$sql = "SELECT * FROM public.\"Authentication\"";
 
-	if($period == "SelectPeriod" && $cardID == "" && $cardType == "CardType" && $clientID == "" && $eventType == "EventType" && $success == "Success")
+	if($period == "SelectPeriod" && $cardID == "" && $cardType == "CardType" && $clientID == "" && $success == "Success")
 	{
 	
 	}
@@ -147,8 +141,6 @@
 			$sql .= " AND \"cardType\" = '{".$cardType."}'";
 		if($clientID) 
 			$sql .= " AND \"clientID\" = ".$clientID;
-		if($eventType && $eventType != "EventType")
-			$sql .= " AND \"eventType\" = '{".$eventType."}'";
 		if($success && $success != "Success")
 			$sql .= " AND success = ".$success;
 
@@ -160,8 +152,6 @@
 			$sql .= " AND \"cardType\" = '{".$cardType."}'";
 		if($clientID) 
 			$sql .= " AND \"clientID\" = ".$clientID;
-		if($eventType && $eventType != "EventType")
-			$sql .= " AND \"eventType\" = '{".$eventType."}'";
 		if($success && $success != "Success")
 			$sql .= " AND success = ".$success;
 	}
@@ -170,22 +160,12 @@
 		$sql .= " \"cardType\" = '{".$cardType."}'";
 		if($clientID) 
 			$sql .= " AND \"clientID\" = ".$clientID;
-		if($eventType && $eventType != "EventType")
-			$sql .= " AND \"eventType\" = '{".$eventType."}'";
 		if($success && $success != "Success")
 			$sql .= " AND success = ".$success;
 	}
 	else if($clientID) 
 	{
 		$sql .= " \"clientID\" = ".$clientID;
-		if($eventType && $eventType != "EventType")
-			$sql .= " AND \"eventType\" = '{".$eventType."}'";
-		if($success && $success != "Success")
-			$sql .= " AND success = ".$success;
-	}
-	else if($eventType && $eventType != "EventType")
-	{
-		$sql .= " \"eventType\" = '{".$eventType."}'";
 		if($success && $success != "Success")
 			$sql .= " AND success = ".$success;
 	}
@@ -205,7 +185,7 @@
 
                 echo "<table align:\"center\" name:\"nfcTable\" id:\"nfcTable\">";
 				echo "<thead>
-						<tr><th>Log ID</th><th>Card ID</th><th>Card Type</th><th>Client ID</th><th>Event Type</th><th>Success?</th><th>Timestamp</th></tr>
+						<tr><th>Log ID</th><th>Card ID</th><th>Card Type</th><th>Client ID</th><th>Description</th><th>Success?</th><th>Timestamp</th></tr>
 					</thead>";
                 echo "<tbody style=\"height:200px; overflow:scroll\">";
 				echo "<div>";
@@ -238,7 +218,7 @@
 							<th scope="col">Card ID</th>
 							<th scope="col">Card Type</th>
 							<th scope="col">Client ID</th>
-							<th scope="col">Event Type</th>
+							<th scope="col">Description</th>
 							<th scope="col">Success?</th>
 							<th scope="col">Timestamp</th>
 						</tr>
@@ -310,7 +290,7 @@
                         }
                     } else {
                         $("#test").attr("href", data_type + ", " + encodeURIComponent(tab_text));
-                        $("#test").attr("download", "OTP Log Table.xls");
+                        $("#test").attr("download", "Authentication Log Table.xls");
                     }
 
                 }
