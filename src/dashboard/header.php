@@ -14,6 +14,8 @@
         <script src="/assets/js/jquery-1.12.4.min.js"></script>
         <script src="/assets/js/bootstrap.min.js"></script>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #01aaad;">
@@ -42,7 +44,7 @@
                             <i class="fa fa-share-alt fa-lg"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Download PDF</a>
+                            <a class="dropdown-item" id="pdf" href="#">Download PDF</a>
                             <a class="dropdown-item disabled" id="excel" href="#">Download Excel</a>
                         </div>
                     </li>
