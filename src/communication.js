@@ -42,7 +42,7 @@ async function processData (req, res) {
             var st = JSON.stringify(data.logs[0])
             if (
               st.match(
-                `{"logType":"[\\w.]{2,}","cardID":\\d{2,6},"cardType":"[\\w.\\s.\\d]{2,}","clientID":\\d{2,6},"description":"[\\w.\\d.\\s,-:;_]{2,}","success":[\\w.]{4,5},"timestamp":"[\\d.]{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
+                `{"logType":"[\\w.]{2,}","cardID":(\\d{2,6}|"\\d{2,6}"),"cardType":"[\\w.\\s.\\d]{2,}","clientID":\\d{2,6},"description":"[\\w.\\d.\\s,-:;_]{2,}","success":[\\w.]{4,5},"timestamp":"[\\d.]{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
               )
             ) {
               addToQueue(data)
