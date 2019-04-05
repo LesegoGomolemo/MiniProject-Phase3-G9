@@ -33,7 +33,7 @@
     $result = $db->query($query);
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-        $dataPoints3[] = array("y" => $row["count"], "label" => substr($row["success"], 1 - strlen($row["success"]), strlen($row["success"]) - 2));;
+        $dataPoints3[] = array("y" => $row["count"], "label" => substr($row["success"], 1 - strlen($row["success"]), strlen($row["success"]) - 2));
     }   
 
 
@@ -45,5 +45,37 @@
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         $dataPoints4[] = array("y" => $row["count"], "label" => substr($row["eventType"], 1 - strlen($row["eventType"]), strlen($row["eventType"]) - 2));
+    }
+
+
+    //QUERY FOR NOTIFICATION TYPE
+    $query = "SELECT \"notificationType\", COUNT(*) as count FROM public.\"Notification\" GROUP BY \"notificationType\" ORDER BY count ASC";
+    $result = $db->query($query);
+
+    $dataPoints5 = array();
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        $dataPoints5[] = array("y" => $row["count"], "label" => substr($row["notificationType"], 1 - strlen($row["notificationType"]), strlen($row["notificationType"]) - 2));
+    }
+
+
+    //QUERY FOR OPEN VS CLOSED ACCOUNTS
+    $query = "SELECT \"eventType\", COUNT(*) as count FROM public.\"ReportLogs\" GROUP BY \"eventType\" ORDER BY count ASC";
+    $result = $db->query($query);
+
+    $dataPoints6 = array();
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        $dataPoints6[] = array("y" => $row["count"], "label" => substr($row["eventType"], 1 - strlen($row["eventType"]), strlen($row["eventType"]) - 2));
+    }
+
+    //QUERY FOR OPEN VS CLOSED ACCOUNTS
+    $query = "SELECT \"eventType\", COUNT(*) as count FROM public.\"Accounts\" WHERE \"eventType\" = '{Close}' OR \"eventType\" = '{Open}' GROUP BY \"eventType\" ORDER BY count DESC";
+    $result = $db->query($query);
+
+    $dataPoints7 = array();
+
+    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        $dataPoints7[] = array("y" => $row["count"], "label" => substr($row["eventType"], 1 - strlen($row["eventType"]), strlen($row["eventType"]) - 2));
     }
 ?>

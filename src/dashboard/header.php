@@ -32,21 +32,12 @@
 
                 <ul class="navbar-nav">
                     <li class="nav-item" style="list-style-type: none !important;">
-                        <div class="icon-text"><a href="#" class="dashboardLink nav-link"><i class="fa fa-home fa-lg"></i></a></div>
+                        <div class="icon-text"><a href="#" class="dashboardLink nav-link"><i class="fa fa-tachometer fa-lg"></i></a></div>
 
                         <!--a href="#" class="dashboardLink nav-link"><i class="fa fa-home fa-2x"></i></a-->
                     </li>
-                    <li class="nav-item" style="list-style-type: none !important;">
+                    <li class="nav-item pad-right" style="list-style-type: none !important;">
                         <a href="#" class="logLink nav-link"><i class="fa fa-list-ul fa-lg"></i></a>
-                    </li>
-                    <li class="nav-item dropdown pad-right">
-                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-share-alt fa-lg"></i>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" id="pdf" href="#">Download PDF</a>
-                            <a class="dropdown-item disabled" id="excel" href="#">Download Excel</a>
-                        </div>
                     </li>
                 </ul>
             </div>
