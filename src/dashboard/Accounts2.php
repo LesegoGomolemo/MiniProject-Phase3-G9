@@ -285,11 +285,11 @@
                             var blob = new Blob([tab_text], {
                                 type: "application/csv;charset=utf-8;"
                             });
-                            navigator.msSaveBlob(blob, "Account Table.xls");
+                            navigator.msSaveBlob(blob, "Accounts Log Table.xls");
                         }
                     } else {
                         $("#test").attr("href", data_type + ", " + encodeURIComponent(tab_text));
-                        $("#test").attr("download", "Account Table.xls");
+                        $("#test").attr("download", "Accounts Log Table.xls");
                     }
 
                 }
