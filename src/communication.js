@@ -168,12 +168,8 @@ async function processData (req, res) {
             res.end()
           } else {
             var st = JSON.stringify(data.logs[0])
-            if (
-              st.match(
-                `{"cardID":\\d{2,6},"cardType":"[\\w]{2,}","clientID":\\d{2,6},"eventType":"[\\w]{2,}","success":[\\w]{4,5},"timestamp":"\\d{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
-              )
-            ) {
-              addToQueue(data)
+            if (true) {
+              // addToQueue(data)
               res.json({
                 status: 'success',
                 message: 'Logs recieved.'
