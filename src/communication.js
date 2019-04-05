@@ -1,6 +1,5 @@
 // attributes
 var logSetQueue
-var count
 var dbManager
 
 // communication class operations
@@ -43,7 +42,7 @@ async function processData (req, res) {
             var st = JSON.stringify(data.logs[0])
             if (
               st.match(
-                `{"logType":"[\\w.]{2,}",""cardID":788945"":\\d{2,":"Student"6},"cardType":"[\\"w.\\s.\\d":"Password Check"]"{2,}","":falsec"lientID":":"2019-12-31 16:45:16"\\d{2,6},"description":"[\\w.\\d.\\s]{2,}","success":[\\w.]{4,5},"timestamp":"[\\d.]{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
+                `{"logType":"[\\w.]{2,}","cardID":\\d{2,6},"cardType":"[\\w.\\s.\\d]{2,}","clientID":\\d{2,6},"description":"[\\w.\\d.\\s]{2,}","success":[\\w.]{4,5},"timestamp":"[\\d.]{4}-[0-1][0-9]-[0-3][0-9]\\s\\d{2}:\\d{2}:\\d{2}"}`
               )
             ) {
               addToQueue(data)
@@ -306,7 +305,6 @@ async function processData (req, res) {
 
 function addToQueue (logSet) {
   logSetQueue.push(logSet)
-  count++
   // dbManager.run()
 }
 
@@ -316,7 +314,7 @@ async function showHelp (req, res) {
     `Content-Type: application/json\n\n` +
       `Log examples: \n\n` +
       `i.Authentication: \n` +
-      `{"logs":[{"logType":123456,"cardID":456789,"cardType":"Credit","clientID":789456,"description":"Some Text","success":true,"timestamp":"2019-12-31 16:45:16"}],\n"system":"auth"}\n\n` +
+      `{"logs":[{"logType":"cardCreated","cardID":456789,"cardType":"Credit","clientID":789456,"description":"Some Text","success":true,"timestamp":"2019-12-31 16:45:16"}],\n"system":"auth"}\n\n` +
       `ii.ATM Simulation: \n` +
       `{"logs":[{"atmID":123456,"clientID":456789,"timestamp":"2019-12-31 16:45:16","eventType":"Event"}],\n"system":"atm"}\n\n` +
       `iii.Facial Recognition: \n` +
