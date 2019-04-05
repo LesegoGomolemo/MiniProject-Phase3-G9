@@ -16,11 +16,17 @@
 						<option value="Simulation.php">Simulation</option>
 						<option value="Facial.php">Facial Recognition</option>
 						<option value="Information.php">Client Information</option>
+						<option value="Authentication.php">Authentication</option>
 					 </select>
 				</td>
 				</tr>
 			</thead>
 		</table>
+		<br>
+	<br>
+	 <h1 align="center" class="font-weight-bold">FACIAL RECOGNITION LOG</h1> 
+	 <br>
+	 <br>
 	<form action="Facial2.php" method="post">
 		<table align="center" style="width:90%;" class="table">
 			<thead>
